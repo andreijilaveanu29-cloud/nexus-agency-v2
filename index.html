@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Nexus Digital Agency — Performance-Driven Marketing</title>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ── HERO ── */
+.hero{background:var(--navy);min-height:100vh;display:flex;align-items:center;padding-top:72px;position:relative;overflow:hidden}
+.hero-ring{position:absolute;border-radius:50%;border:1px solid rgba(201,168,76,.07)}
+.hero-ring-1{width:700px;height:700px;top:-160px;right:-160px}
+.hero-ring-2{width:520px;height:520px;top:-40px;right:-40px}
+.hero-ring-3{width:340px;height:340px;top:80px;right:80px}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);background-size:60px 60px}
+.hero-content{position:relative;z-index:2;max-width:700px}
+.hero h1{color:var(--white);margin-bottom:1.5rem}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero-desc{font-size:1.05rem;color:rgba(255,255,255,.6);max-width:520px;line-height:1.8;margin-bottom:.75rem}
+.hero-channels{font-size:.72rem;font-weight:500;letter-spacing:.08em;color:var(--gold);margin-bottom:2.5rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3.5rem}
+.hero-stats{display:flex;gap:3rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.1);flex-wrap:wrap}
+.stat-num{font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--gold);line-height:1}
+.stat-label{font-size:.72rem;color:rgba(255,255,255,.45);margin-top:.3rem;letter-spacing:.04em}
+
+/* ── CLIENTS ── */
+.clients{background:var(--navy-mid);padding:2rem 0;border-top:1px solid rgba(201,168,76,.1);border-bottom:1px solid rgba(201,168,76,.1)}
+.clients-inner{display:flex;align-items:center;gap:3rem;flex-wrap:wrap}
+.clients-label{font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.28);white-space:nowrap}
+.client-logos{display:flex;gap:2.5rem;align-items:center;flex-wrap:wrap;flex:1}
+.client-name{font-family:var(--serif);font-size:.95rem;font-weight:700;color:rgba(255,255,255,.18);letter-spacing:.04em}
+
+/* ── SERVICES PREVIEW ── */
+.services-preview{background:var(--cream)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.svc-card{background:var(--white);border:1px solid var(--gray-300);border-top:3px solid var(--gold);border-radius:3px;padding:2rem 1.75rem;transition:all .3s var(--ease);position:relative;overflow:hidden}
+.svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--navy);transform:scaleX(0);transition:transform .3s var(--ease)}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(11,31,58,.1)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-icon{width:42px;height:42px;background:var(--navy);border-radius:3px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+.svc-tag{font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.svc-card h3{margin-bottom:.6rem;color:var(--navy)}
+.svc-card p{font-size:.875rem;line-height:1.7}
+.svc-more{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.25rem;font-size:.78rem;font-weight:600;letter-spacing:.06em;color:var(--navy);border-bottom:1px solid var(--gray-300);padding-bottom:2px;transition:all .2s}
+.svc-card:hover .svc-more{color:var(--gold);border-color:var(--gold)}
+.view-all-wrap{text-align:center;margin-top:3rem}
+
+/* ── MARKETS ── */
+.markets{background:var(--navy)}
+.markets-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.market-card{border-radius:3px;padding:2.5rem 2rem;border:1px solid rgba(201,168,76,.14)}
+.market-card.b2b{background:var(--navy-mid)}
+.market-card.b2c{background:rgba(201,168,76,.05)}
+.market-badge{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;background:var(--gold);color:var(--navy);padding:.35rem 1rem;border-radius:2px;margin-bottom:1.25rem}
+.market-card h3{color:var(--white);margin-bottom:.65rem}
+.market-card>p{color:rgba(255,255,255,.5);font-size:.9rem;margin-bottom:1.5rem}
+.market-list{list-style:none}
+.market-list li{font-size:.875rem;color:rgba(255,255,255,.6);padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:.75rem}
+.market-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* ── WHY ── */
+.why{background:var(--cream)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.why-card{padding:2rem 1.75rem;background:var(--white);border:1px solid var(--gray-300);border-radius:3px;transition:border-color .3s}
+.why-card:hover{border-color:var(--gold)}
+.why-num{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--gold);opacity:.2;line-height:1;margin-bottom:.75rem}
+.why-card h3{margin-bottom:.5rem}
+.why-card p{font-size:.875rem;line-height:1.7}
+
+@media(max-width:900px){.svc-grid,.markets-grid,.why-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.svc-grid,.markets-grid,.why-grid{grid-template-columns:1fr}.hero-stats{gap:1.5rem}}
+</style>
+</head>
+<body data-page="index">
+<script src="shared-nav.js"></script>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-ring hero-ring-1"></div>
+  <div class="hero-ring hero-ring-2"></div>
+  <div class="hero-ring hero-ring-3"></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="label fade-up">Full-Service Digital Marketing Agency</span>
+      <h1 class="fade-up fade-up-1">Growth Marketing<br/>for <em>Ambitious</em><br/>Brands.</h1>
+      <p class="hero-desc fade-up fade-up-2">Google Ads, Meta, LinkedIn &amp; TikTok advertising. Email campaigns. SEO &amp; SEM. Web design. Copywriting. Everything you need — under one roof.</p>
+      <p class="hero-channels fade-up fade-up-2">B2B &amp; B2C &nbsp;·&nbsp; Google &nbsp;·&nbsp; Meta &nbsp;·&nbsp; LinkedIn &nbsp;·&nbsp; TikTok &nbsp;·&nbsp; Email &nbsp;·&nbsp; SEO &nbsp;·&nbsp; SEM &nbsp;·&nbsp; Web Design</p>
+      <div class="hero-actions fade-up fade-up-3">
+        <a href="free-audit.html" class="btn btn-gold">Get Your Free Strategy Audit</a>
+        <a href="services.html" class="btn btn-outline">Explore Services</a>
+      </div>
+      <div class="hero-stats fade-up fade-up-4">
+        <div><div class="stat-num">150+</div><div class="stat-label">Campaigns Launched</div></div>
+        <div><div class="stat-num">4.8×</div><div class="stat-label">Average ROAS</div></div>
+        <div><div class="stat-num">B2B+B2C</div><div class="stat-label">Markets Served</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<div class="clients">
+  <div class="container">
+    <div class="clients-inner">
+      <span class="clients-label">Trusted by</span>
+      <div class="client-logos">
+        <span class="client-name">Acme Corp</span>
+        <span class="client-name">NovaTech</span>
+        <span class="client-name">Veridian</span>
+        <span class="client-name">Luminary</span>
+        <span class="client-name">Axiom Brands</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES PREVIEW -->
+<section class="section services-preview">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">What We Do</span>
+      <h2>Full-Service Digital Marketing</h2>
+      <p>Every service you need to grow online — from paid media and email to SEO, web design, and conversion-focused copywriting.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="4" width="18" height="14" rx="2"/><path d="M8 10l2 2 4-4"/></svg></div>
+        <div class="svc-tag">Paid Social</div>
+        <h3>Social Media Advertising</h3>
+        <p>Meta, TikTok, LinkedIn — full-funnel paid campaigns built to convert, not just reach.</p>
+        <a href="services.html" class="svc-more">Learn more →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><circle cx="10" cy="10" r="7"/><path d="M15 15l4 4"/></svg></div>
+        <div class="svc-tag">Search</div>
+        <h3>Google Ads &amp; SEM</h3>
+        <p>Search, Shopping, Performance Max — every corner of Google's advertising ecosystem.</p>
+        <a href="services.html" class="svc-more">Learn more →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="4" width="18" height="14" rx="2"/><path d="M2 8l9 6 9-6"/></svg></div>
+        <div class="svc-tag">Email</div>
+        <h3>Email Marketing</h3>
+        <p>Campaigns, drip automation, and lifecycle sequences that nurture leads and drive revenue.</p>
+        <a href="services.html" class="svc-more">Learn more →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M3 18l4-8 4 4 4-6 4 2"/></svg></div>
+        <div class="svc-tag">Organic</div>
+        <h3>SEO</h3>
+        <p>Technical SEO, content strategy, authority link building — organic traffic that compounds.</p>
+        <a href="services.html" class="svc-more">Learn more →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="16" height="16" rx="2"/><path d="M7 8h8M7 12h6M7 16h4"/></svg></div>
+        <div class="svc-tag">Creative</div>
+        <h3>Web Design &amp; Copywriting</h3>
+        <p>Conversion-optimized websites and persuasive copy that speaks to your audience.</p>
+        <a href="services.html" class="svc-more">Learn more →</a>
+      </div>
+      <div class="svc-card" style="background:var(--navy);border-color:var(--navy)">
+        <div style="height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start">
+          <span class="label" style="margin-bottom:1rem;display:block">All Services</span>
+          <h3 style="color:var(--white);margin-bottom:.75rem">Everything Your Brand Needs</h3>
+          <p style="color:rgba(255,255,255,.5);font-size:.875rem;margin-bottom:1.5rem">Six core service lines. One accountable team. Zero agency chaos.</p>
+          <a href="services.html" class="btn btn-gold" style="font-size:.75rem;padding:.8rem 1.75rem">View All Services</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETS -->
+<section class="section markets">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Who We Serve</span>
+      <h2 style="color:var(--white)">Built for B2B &amp; B2C Brands</h2>
+      <p style="color:rgba(255,255,255,.5)">We understand the fundamental differences — and we build strategies tailored to each.</p>
+    </div>
+    <div class="markets-grid">
+      <div class="market-card b2b">
+        <span class="market-badge">B2B</span>
+        <h3>Business-to-Business</h3>
+        <p>Long sales cycles, complex committees, high-value deals — we build pipelines that convert.</p>
+        <ul class="market-list">
+          <li>SaaS &amp; Technology Companies</li>
+          <li>Professional Services (Legal, Finance, HR)</li>
+          <li>Manufacturing &amp; Industrial</li>
+          <li>Healthcare &amp; MedTech</li>
+          <li>E-learning &amp; EdTech Platforms</li>
+        </ul>
+      </div>
+      <div class="market-card b2c">
+        <span class="market-badge">B2C</span>
+        <h3>Business-to-Consumer</h3>
+        <p>Emotional decisions, shorter funnels, volume-driven growth — we build brands people choose.</p>
+        <ul class="market-list">
+          <li>E-commerce (Fashion, Beauty, Electronics)</li>
+          <li>Restaurant &amp; Hospitality Groups</li>
+          <li>Consumer Apps &amp; Subscriptions</li>
+          <li>Local Service Businesses</li>
+          <li>Consumer Goods &amp; FMCG</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section why">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Why Nexus</span>
+      <h2>What Makes Us Different</h2>
+      <p>We're not just another agency. We're a performance-obsessed team that treats your business like our own.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-num">01</div><h3>Full-Service Under One Roof</h3><p>Every channel coordinated — without the chaos of managing five separate agencies.</p></div>
+      <div class="why-card"><div class="why-num">02</div><h3>Performance-First Mindset</h3><p>Every decision is backed by data. We optimize for revenue, leads, and ROAS.</p></div>
+      <div class="why-card"><div class="why-num">03</div><h3>Radical Transparency</h3><p>Real-time dashboards, honest reporting, clear communication. No smoke, no mirrors.</p></div>
+      <div class="why-card"><div class="why-num">04</div><h3>Certified Specialists</h3><p>Google Partner, Meta Blueprint, and HubSpot-accredited experts on every account.</p></div>
+      <div class="why-card"><div class="why-num">05</div><h3>Agile &amp; Responsive</h3><p>Lean team, fast execution. When things shift, we move immediately.</p></div>
+      <div class="why-card"><div class="why-num">06</div><h3>B2B + B2C Expertise</h3><p>Rare dual expertise means strategies built for your actual audience, not a template.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="container">
+    <h2>Ready to Scale Your Brand?</h2>
+    <p>Book a free 30-minute strategy audit. We'll show you exactly where the growth is hiding.</p>
+    <a href="free-audit.html" class="btn btn-navy">Book Your Free Audit →</a>
+  </div>
+</section>
+</body>
+</html>

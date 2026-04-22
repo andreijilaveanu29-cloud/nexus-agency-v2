@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Services — Nexus Digital Agency</title>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ── SERVICE DETAIL CARDS ── */
+.services-full{background:var(--cream)}
+.svc-block{display:grid;grid-template-columns:1fr 2fr;gap:4rem;padding:4rem 0;border-bottom:1px solid var(--gray-300);align-items:start}
+.svc-block:last-child{border-bottom:none}
+.svc-block-label{position:relative}
+.svc-block-num{font-family:var(--serif);font-size:5rem;font-weight:700;color:var(--navy);opacity:.05;line-height:1;position:absolute;top:-1.5rem;left:0}
+.svc-block-icon{width:56px;height:56px;background:var(--navy);border-radius:3px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;position:relative;z-index:1}
+.svc-block-tag{font-size:.65rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;position:relative;z-index:1}
+.svc-block-left h3{font-size:1.5rem;color:var(--navy);position:relative;z-index:1}
+.svc-block-right p{margin-bottom:1.25rem}
+.svc-features{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1.75rem 0}
+.svc-feature{display:flex;align-items:flex-start;gap:.65rem;font-size:.875rem;color:var(--gray-700);line-height:1.6}
+.svc-feature::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.45rem}
+.svc-platforms-list{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.platform-pill{font-size:.7rem;font-weight:600;letter-spacing:.08em;background:var(--navy);color:var(--gold);padding:.4rem 1rem;border-radius:2px}
+
+/* ── CHANNELS BAND ── */
+.channels-band{background:var(--navy);padding:3.5rem 0}
+.channels-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.channel-item{text-align:center;padding:1.75rem 1rem;border:1px solid rgba(201,168,76,.12);border-radius:3px;transition:border-color .3s}
+.channel-item:hover{border-color:rgba(201,168,76,.45)}
+.channel-icon{width:48px;height:48px;border-radius:50%;border:1px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
+.channel-name{font-size:.85rem;font-weight:600;color:var(--white);margin-bottom:.3rem}
+.channel-desc{font-size:.75rem;color:rgba(255,255,255,.4);line-height:1.6}
+
+@media(max-width:900px){.svc-block{grid-template-columns:1fr}.channels-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.svc-features{grid-template-columns:1fr}.channels-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body data-page="services">
+<script src="shared-nav.js"></script>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-ring" style="width:600px;height:600px;top:-150px;right:-150px"></div>
+  <div class="page-hero-ring" style="width:400px;height:400px;top:-50px;right:-50px"></div>
+  <div class="container">
+    <span class="label fade-up">What We Offer</span>
+    <h1 class="fade-up fade-up-1">Our <em>Services</em></h1>
+    <p class="page-hero-desc fade-up fade-up-2">Six core service lines. Every channel. One accountable team that treats your growth as their own mission.</p>
+  </div>
+</section>
+
+<!-- CHANNEL ICONS -->
+<div class="channels-band">
+  <div class="container">
+    <div class="channels-grid">
+      <div class="channel-item">
+        <div class="channel-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round"><path d="M11 2a9 9 0 100 18A9 9 0 0011 2z"/><path d="M2 11h18M11 2a14 14 0 010 18M11 2a14 14 0 000 18"/></svg></div>
+        <div class="channel-name">Google Ads</div>
+        <div class="channel-desc">Search · Shopping · Display · YouTube</div>
+      </div>
+      <div class="channel-item">
+        <div class="channel-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round"><rect x="3" y="3" width="16" height="16" rx="3"/><circle cx="11" cy="11" r="3.5"/><circle cx="15.5" cy="6.5" r=".8" fill="#C9A84C"/></svg></div>
+        <div class="channel-name">Meta Ads</div>
+        <div class="channel-desc">Facebook · Instagram · Stories · Reels</div>
+      </div>
+      <div class="channel-item">
+        <div class="channel-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round"><rect x="2" y="2" width="18" height="18" rx="3"/><path d="M6 9v7M6 6v.5M10 16v-4c0-1.5 1-2 2-2s2 .5 2 2v4M10 9v7"/></svg></div>
+        <div class="channel-name">LinkedIn Ads</div>
+        <div class="channel-desc">Sponsored · InMail · Lead Gen Forms</div>
+      </div>
+      <div class="channel-item">
+        <div class="channel-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg></div>
+        <div class="channel-name">TikTok Ads</div>
+        <div class="channel-desc">In-Feed · TopView · Spark Ads</div>
+      </div>
+      <div class="channel-item">
+        <div class="channel-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round"><rect x="2" y="4" width="18" height="14" rx="2"/><path d="M2 8l9 6 9-6"/></svg></div>
+        <div class="channel-name">Email Marketing</div>
+        <div class="channel-desc">Campaigns · Automation · Drips</div>
+      </div>
+      <div class="channel-item">
+        <div class="channel-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round"><path d="M3 18l4-8 4 4 4-6 4 2"/></svg></div>
+        <div class="channel-name">SEO &amp; SEM</div>
+        <div class="channel-desc">Technical · Content · Link Building</div>
+      </div>
+      <div class="channel-item">
+        <div class="channel-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round"><rect x="3" y="3" width="16" height="16" rx="2"/><path d="M7 8h8M7 12h6M7 16h4"/></svg></div>
+        <div class="channel-name">Copywriting</div>
+        <div class="channel-desc">Web · Ads · Email · Brand Voice</div>
+      </div>
+      <div class="channel-item">
+        <div class="channel-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round"><rect x="2" y="3" width="18" height="15" rx="2"/><path d="M2 7h18M6 20h10"/></svg></div>
+        <div class="channel-name">Web Design</div>
+        <div class="channel-desc">UI/UX · WordPress · Webflow · CRO</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES DETAIL -->
+<section class="section services-full">
+  <div class="container">
+
+    <!-- 01 Social Media Advertising -->
+    <div class="svc-block">
+      <div class="svc-block-label">
+        <div class="svc-block-num">01</div>
+        <div class="svc-block-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="4" width="22" height="18" rx="2"/><path d="M9 12l3 3 5-5"/></svg></div>
+        <div class="svc-block-tag">Paid Social</div>
+        <h3 class="svc-block-left" style="font-size:1.4rem;color:var(--navy)">Social Media Advertising</h3>
+        <div class="svc-platforms-list" style="margin-top:1rem">
+          <span class="platform-pill">Meta</span>
+          <span class="platform-pill">TikTok</span>
+          <span class="platform-pill">LinkedIn</span>
+          <span class="platform-pill">Instagram</span>
+        </div>
+      </div>
+      <div class="svc-block-right">
+        <p>Our paid social advertising team specializes in building and managing high-performing ad campaigns across every major social platform. We develop platform-native creative, precise audience targeting, and continuous optimization loops to maximize your Return on Ad Spend.</p>
+        <p>Whether you're a B2B company targeting C-suite decision-makers on LinkedIn or a B2C brand reaching consumers with scroll-stopping TikTok content, we build campaigns that perform at every stage of the funnel.</p>
+        <div class="svc-features">
+          <div class="svc-feature">Full-funnel strategy: Awareness → Consideration → Conversion</div>
+          <div class="svc-feature">Dynamic Product Ads (DPA) for e-commerce retargeting</div>
+          <div class="svc-feature">Custom &amp; Lookalike Audience targeting</div>
+          <div class="svc-feature">Creative production: static, video, carousel, Reels</div>
+          <div class="svc-feature">LinkedIn ABM targeting by title, company &amp; seniority</div>
+          <div class="svc-feature">TikTok Spark Ads &amp; UGC strategy</div>
+          <div class="svc-feature">Continuous A/B testing and creative refresh</div>
+          <div class="svc-feature">Weekly performance optimization &amp; budget reallocation</div>
+        </div>
+        <a href="free-audit.html" class="btn btn-navy" style="font-size:.78rem;padding:.85rem 2rem">Get a Free Social Media Audit →</a>
+      </div>
+    </div>
+
+    <!-- 02 Google Ads -->
+    <div class="svc-block">
+      <div class="svc-block-label">
+        <div class="svc-block-num">02</div>
+        <div class="svc-block-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M18 18l5 5"/></svg></div>
+        <div class="svc-block-tag">Search &amp; Display</div>
+        <h3 style="font-size:1.4rem;color:var(--navy)">Google Ads &amp; SEM</h3>
+        <div class="svc-platforms-list" style="margin-top:1rem">
+          <span class="platform-pill">Search</span>
+          <span class="platform-pill">Shopping</span>
+          <span class="platform-pill">PMax</span>
+          <span class="platform-pill">YouTube</span>
+        </div>
+      </div>
+      <div class="svc-block-right">
+        <p>We manage Google Ads campaigns with a performance-first approach, covering the full spectrum of Google's advertising ecosystem. From brand search protection to Performance Max campaigns, we ensure every euro is working towards your growth objectives.</p>
+        <p>Our certified Google specialists combine deep keyword research, intelligent bid management, and compelling ad copy to drive qualified traffic that converts — for both B2B lead generation and B2C sales.</p>
+        <div class="svc-features">
+          <div class="svc-feature">Search Ads: keyword research, Quality Score optimization</div>
+          <div class="svc-feature">Shopping Ads: product feed optimization, Merchant Center</div>
+          <div class="svc-feature">Performance Max: AI-driven cross-inventory campaigns</div>
+          <div class="svc-feature">YouTube pre-roll &amp; bumper ads</div>
+          <div class="svc-feature">Smart bidding strategy &amp; target ROAS/CPA management</div>
+          <div class="svc-feature">Competitor conquesting &amp; branded keyword defense</div>
+          <div class="svc-feature">Landing page alignment &amp; CRO recommendations</div>
+          <div class="svc-feature">Conversion tracking setup &amp; attribution modeling</div>
+        </div>
+        <a href="free-audit.html" class="btn btn-navy" style="font-size:.78rem;padding:.85rem 2rem">Get a Free Google Ads Audit →</a>
+      </div>
+    </div>
+
+    <!-- 03 Email Marketing -->
+    <div class="svc-block">
+      <div class="svc-block-label">
+        <div class="svc-block-num">03</div>
+        <div class="svc-block-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="5" width="22" height="17" rx="2"/><path d="M2 9l11 7 11-7"/></svg></div>
+        <div class="svc-block-tag">Email Marketing</div>
+        <h3 style="font-size:1.4rem;color:var(--navy)">Email Campaigns &amp; Automation</h3>
+        <div class="svc-platforms-list" style="margin-top:1rem">
+          <span class="platform-pill">Klaviyo</span>
+          <span class="platform-pill">HubSpot</span>
+          <span class="platform-pill">Mailchimp</span>
+          <span class="platform-pill">ActiveCampaign</span>
+        </div>
+      </div>
+      <div class="svc-block-right">
+        <p>Email remains one of the highest-ROI marketing channels available. We design, build, and manage email programs that nurture prospects, retain customers, and drive repeat revenue — with rigorous A/B testing and analytics at every step.</p>
+        <p>From sophisticated B2B lead nurture sequences to high-converting B2C promotional campaigns, our email team builds programs that work around the clock on your behalf.</p>
+        <div class="svc-features">
+          <div class="svc-feature">Welcome series &amp; onboarding sequences</div>
+          <div class="svc-feature">Promotional campaigns &amp; newsletters</div>
+          <div class="svc-feature">Abandoned cart recovery automation</div>
+          <div class="svc-feature">Lead nurture &amp; sales enablement drips</div>
+          <div class="svc-feature">Behavioural triggers &amp; lifecycle automation</div>
+          <div class="svc-feature">Segmentation &amp; dynamic personalisation</div>
+          <div class="svc-feature">Deliverability management (SPF/DKIM/DMARC)</div>
+          <div class="svc-feature">List hygiene &amp; sender reputation monitoring</div>
+        </div>
+        <a href="free-audit.html" class="btn btn-navy" style="font-size:.78rem;padding:.85rem 2rem">Audit My Email Program →</a>
+      </div>
+    </div>
+
+    <!-- 04 SEO -->
+    <div class="svc-block">
+      <div class="svc-block-label">
+        <div class="svc-block-num">04</div>
+        <div class="svc-block-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M3 20l5-10 5 5 5-8 5 3"/></svg></div>
+        <div class="svc-block-tag">Organic Growth</div>
+        <h3 style="font-size:1.4rem;color:var(--navy)">SEO &amp; Search Engine Optimisation</h3>
+        <div class="svc-platforms-list" style="margin-top:1rem">
+          <span class="platform-pill">Technical</span>
+          <span class="platform-pill">On-Page</span>
+          <span class="platform-pill">Local SEO</span>
+          <span class="platform-pill">Link Building</span>
+        </div>
+      </div>
+      <div class="svc-block-right">
+        <p>Our SEO services are built on technical excellence, content authority, and sustainable link building — the three pillars of long-term organic growth. We take a holistic approach that aligns SEO tightly with your overall marketing strategy.</p>
+        <p>From Core Web Vitals to topical authority content clusters, we build the kind of SEO foundations that continue compounding in value month after month, year after year.</p>
+        <div class="svc-features">
+          <div class="svc-feature">Technical SEO audit: speed, crawlability, Core Web Vitals</div>
+          <div class="svc-feature">Keyword research &amp; topical authority mapping</div>
+          <div class="svc-feature">On-page optimisation: meta, headings, internal links</div>
+          <div class="svc-feature">Structured data &amp; schema markup</div>
+          <div class="svc-feature">Digital PR &amp; authority link acquisition</div>
+          <div class="svc-feature">Local SEO: Google Business Profile, citations</div>
+          <div class="svc-feature">E-commerce SEO: product pages, category architecture</div>
+          <div class="svc-feature">Monthly SEO performance reporting &amp; insights</div>
+        </div>
+        <a href="free-audit.html" class="btn btn-navy" style="font-size:.78rem;padding:.85rem 2rem">Get a Free SEO Audit →</a>
+      </div>
+    </div>
+
+    <!-- 05 Web Design -->
+    <div class="svc-block">
+      <div class="svc-block-label">
+        <div class="svc-block-num">05</div>
+        <div class="svc-block-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="22" height="18" rx="2"/><path d="M2 8h22M8 22V8"/></svg></div>
+        <div class="svc-block-tag">Web Design</div>
+        <h3 style="font-size:1.4rem;color:var(--navy)">Web Design &amp; Development</h3>
+        <div class="svc-platforms-list" style="margin-top:1rem">
+          <span class="platform-pill">WordPress</span>
+          <span class="platform-pill">Webflow</span>
+          <span class="platform-pill">Shopify</span>
+          <span class="platform-pill">Custom</span>
+        </div>
+      </div>
+      <div class="svc-block-right">
+        <p>A high-performing website is the foundation of every digital marketing effort. We design and develop websites that are fast, beautiful, conversion-optimized, and built specifically to support your marketing goals — not just to look good.</p>
+        <p>From full website redesigns to purpose-built landing pages for your paid campaigns, our design team delivers work that converts visitors into customers.</p>
+        <div class="svc-features">
+          <div class="svc-feature">UI/UX design: wireframing, prototyping, user journeys</div>
+          <div class="svc-feature">WordPress, Webflow, Shopify &amp; custom development</div>
+          <div class="svc-feature">Landing pages for PPC, email &amp; social campaigns</div>
+          <div class="svc-feature">Mobile-first, performance-optimised builds</div>
+          <div class="svc-feature">CRO: A/B testing, heatmaps, funnel optimisation</div>
+          <div class="svc-feature">Website speed &amp; Core Web Vitals optimisation</div>
+          <div class="svc-feature">Accessibility (WCAG 2.1) compliance</div>
+          <div class="svc-feature">Post-launch support &amp; maintenance packages</div>
+        </div>
+        <a href="contact.html" class="btn btn-navy" style="font-size:.78rem;padding:.85rem 2rem">Discuss Your Project →</a>
+      </div>
+    </div>
+
+    <!-- 06 Copywriting -->
+    <div class="svc-block">
+      <div class="svc-block-label">
+        <div class="svc-block-num">06</div>
+        <div class="svc-block-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="4" width="18" height="18" rx="2"/><path d="M9 9h8M9 13h6M9 17h4"/></svg></div>
+        <div class="svc-block-tag">Creative</div>
+        <h3 style="font-size:1.4rem;color:var(--navy)">Copywriting &amp; Content</h3>
+        <div class="svc-platforms-list" style="margin-top:1rem">
+          <span class="platform-pill">Web Copy</span>
+          <span class="platform-pill">Ad Copy</span>
+          <span class="platform-pill">Email</span>
+          <span class="platform-pill">Blog</span>
+        </div>
+      </div>
+      <div class="svc-block-right">
+        <p>Words drive decisions. Our copywriting team crafts persuasive, on-brand content that speaks directly to your target audience — whether that's a technical B2B decision-maker or an emotionally-driven B2C consumer.</p>
+        <p>We don't write generic content. Every piece is researched, audience-specific, conversion-focused, and aligned with your brand voice — from homepage headlines to 2,000-word thought leadership articles.</p>
+        <div class="svc-features">
+          <div class="svc-feature">Website copy: homepage, services, product, about pages</div>
+          <div class="svc-feature">Ad copy: Google Ads, Meta, LinkedIn, TikTok scripts</div>
+          <div class="svc-feature">Landing pages: high-converting copy for paid traffic</div>
+          <div class="svc-feature">Email copy: subject lines, body, CTAs for all series</div>
+          <div class="svc-feature">Blog &amp; long-form: thought leadership, SEO content</div>
+          <div class="svc-feature">Case studies &amp; whitepapers for B2B</div>
+          <div class="svc-feature">Brand voice guide &amp; tone of voice framework</div>
+          <div class="svc-feature">Messaging architecture &amp; brand positioning</div>
+        </div>
+        <a href="contact.html" class="btn btn-navy" style="font-size:.78rem;padding:.85rem 2rem">Talk About Your Copy →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="container">
+    <h2>Not Sure Which Service You Need?</h2>
+    <p>Book a free audit and we'll map out the exact channels and tactics that will drive the most growth for your business.</p>
+    <a href="free-audit.html" class="btn btn-navy">Get My Free Strategy Audit →</a>
+  </div>
+</section>
+</body>
+</html>

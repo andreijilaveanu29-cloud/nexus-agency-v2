@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Pricing — Nexus Digital Agency</title>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ── PRICING CARDS ── */
+.pricing-section{background:var(--cream)}
+.pricing-intro{max-width:660px;margin:0 auto 4rem;text-align:center}
+.pricing-intro .label{display:block;margin-bottom:.75rem}
+.pricing-intro h2{margin-bottom:1rem}
+.pricing-intro p{color:var(--gray-500)}
+
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;align-items:start}
+.pricing-card{border-radius:4px;overflow:hidden;border:1px solid var(--gray-300);background:var(--white);transition:all .3s}
+.pricing-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(11,31,58,.12)}
+.pricing-card.featured{border:2px solid var(--gold);transform:scale(1.02)}
+.pricing-card.featured:hover{transform:scale(1.02) translateY(-4px)}
+.pricing-card-header{padding:2.5rem 2rem;background:var(--navy);position:relative}
+.pricing-card.featured .pricing-card-header{background:var(--gold)}
+.pricing-badge{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .9rem;border-radius:2px;margin-bottom:1.25rem;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7)}
+.pricing-card.featured .pricing-badge{background:var(--navy);color:var(--gold)}
+.pricing-name{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--white);margin-bottom:.5rem}
+.pricing-card.featured .pricing-name{color:var(--navy)}
+.pricing-tagline{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.6}
+.pricing-card.featured .pricing-tagline{color:rgba(11,31,58,.6)}
+.pricing-price-wrap{padding:2rem;border-bottom:1px solid var(--gray-300)}
+.pricing-price-row{display:flex;align-items:baseline;gap:.5rem;margin-bottom:.35rem}
+.pricing-from{font-size:.75rem;color:var(--gray-500)}
+.pricing-amount{font-family:var(--serif);font-size:2.8rem;font-weight:700;color:var(--navy);line-height:1}
+.pricing-period{font-size:.82rem;color:var(--gray-500)}
+.pricing-range{font-size:.78rem;color:var(--gold);margin-top:.25rem}
+.pricing-body{padding:2rem}
+.pricing-features{list-style:none;margin-bottom:1.75rem}
+.pricing-features li{display:flex;align-items:flex-start;gap:.75rem;font-size:.875rem;color:var(--gray-700);padding:.45rem 0;border-bottom:1px solid var(--gray-100);line-height:1.5}
+.pricing-features li:last-child{border-bottom:none}
+.check{width:18px;height:18px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;margin-top:1px}
+.check-yes{background:rgba(201,168,76,.15);color:var(--gold)}
+.check-no{background:var(--gray-100);color:var(--gray-300)}
+.pricing-cta{display:block;width:100%;text-align:center;padding:1rem;font-family:var(--sans);font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:none;border-radius:2px;cursor:pointer;transition:all .25s;text-decoration:none}
+.pricing-cta-default{background:var(--navy);color:var(--white)}.pricing-cta-default:hover{background:var(--navy-light)}
+.pricing-cta-gold{background:var(--gold);color:var(--navy)}.pricing-cta-gold:hover{background:var(--gold-light)}
+
+/* ── FEATURE COMPARISON ── */
+.comparison{background:var(--navy);padding:5rem 0}
+.comparison table{width:100%;border-collapse:collapse;margin-top:3rem}
+.comparison th{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:1rem 1.25rem;text-align:left;border-bottom:1px solid rgba(201,168,76,.15)}
+.comparison th:first-child{color:rgba(255,255,255,.4);width:40%}
+.comparison th:not(:first-child){color:var(--gold);text-align:center}
+.comparison td{padding:.9rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.05);font-size:.875rem;color:rgba(255,255,255,.65)}
+.comparison td:not(:first-child){text-align:center}
+.comparison td .yes{color:var(--gold);font-size:.8rem;font-weight:600}
+.comparison td .no{color:rgba(255,255,255,.2)}
+.comparison tr:hover td{background:rgba(255,255,255,.02)}
+
+/* ── FAQ ── */
+.faq{background:var(--cream);padding:5rem 0}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem}
+.faq-item{background:var(--white);border:1px solid var(--gray-300);border-radius:3px;padding:2rem}
+.faq-q{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:.75rem}
+.faq-a{font-size:.875rem;color:var(--gray-500);line-height:1.75}
+
+/* ── ADD-ONS ── */
+.addons{background:var(--gray-100);padding:4rem 0}
+.addons-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem}
+.addon-card{background:var(--white);border:1px solid var(--gray-300);border-radius:3px;padding:1.75rem}
+.addon-name{font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:.35rem}
+.addon-price{font-size:1rem;font-weight:700;color:var(--gold);margin-bottom:.5rem;font-family:var(--serif)}
+.addon-desc{font-size:.82rem;color:var(--gray-500);line-height:1.65}
+
+@media(max-width:900px){.pricing-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}.pricing-card.featured{transform:none}.comparison{overflow-x:auto}.faq-grid{grid-template-columns:1fr}.addons-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.addons-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="pricing">
+<script src="shared-nav.js"></script>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-ring" style="width:500px;height:500px;top:-120px;right:-120px"></div>
+  <div class="container">
+    <span class="label fade-up">Transparent Pricing</span>
+    <h1 class="fade-up fade-up-1"><em>Pricing</em> That's Clear</h1>
+    <p class="page-hero-desc fade-up fade-up-2">No hidden fees. No long-term lock-in. No vague "packages." Just results-driven retainers built around your actual goals — with everything priced upfront.</p>
+  </div>
+</section>
+
+<!-- PRICING CARDS -->
+<section class="section pricing-section">
+  <div class="container">
+
+    <div class="pricing-grid">
+
+      <!-- Starter -->
+      <div class="pricing-card">
+        <div class="pricing-card-header">
+          <span class="pricing-badge">Starter</span>
+          <div class="pricing-name">Starter</div>
+          <div class="pricing-tagline">Perfect for businesses ready to launch their first serious digital marketing programme.</div>
+        </div>
+        <div class="pricing-price-wrap">
+          <div class="pricing-price-row">
+            <span class="pricing-from">From</span>
+            <span class="pricing-amount">$1,500</span>
+            <span class="pricing-period">/month</span>
+          </div>
+          <div class="pricing-range">Up to $3,000/month depending on scope</div>
+        </div>
+        <div class="pricing-body">
+          <ul class="pricing-features">
+            <li><span class="check check-yes">✓</span> Google Ads (Search + Display)</li>
+            <li><span class="check check-yes">✓</span> Meta / Instagram Ads</li>
+            <li><span class="check check-yes">✓</span> Email Marketing (2 campaigns/month)</li>
+            <li><span class="check check-yes">✓</span> On-Page SEO</li>
+            <li><span class="check check-yes">✓</span> SEM Strategy (Basic)</li>
+            <li><span class="check check-yes">✓</span> Copywriting (2 pages/month)</li>
+            <li><span class="check check-yes">✓</span> Monthly Performance Report</li>
+            <li><span class="check check-yes">✓</span> Monthly Strategy Call</li>
+            <li><span class="check check-no">—</span> TikTok Ads</li>
+            <li><span class="check check-no">—</span> LinkedIn Ads</li>
+            <li><span class="check check-no">—</span> Technical SEO</li>
+            <li><span class="check check-no">—</span> Web Design / Landing Pages</li>
+            <li><span class="check check-no">—</span> Dedicated Account Manager</li>
+          </ul>
+          <a href="free-audit.html" class="pricing-cta pricing-cta-default">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Growth (featured) -->
+      <div class="pricing-card featured">
+        <div class="pricing-card-header">
+          <span class="pricing-badge">Most Popular</span>
+          <div class="pricing-name">Growth</div>
+          <div class="pricing-tagline">For brands serious about scaling with a full multi-channel strategy.</div>
+        </div>
+        <div class="pricing-price-wrap" style="border-bottom-color:var(--gold-pale)">
+          <div class="pricing-price-row">
+            <span class="pricing-from">From</span>
+            <span class="pricing-amount">$3,000</span>
+            <span class="pricing-period">/month</span>
+          </div>
+          <div class="pricing-range">Up to $7,000/month depending on scope</div>
+        </div>
+        <div class="pricing-body">
+          <ul class="pricing-features">
+            <li><span class="check check-yes">✓</span> Google Ads (Full — Search, Shopping, PMax)</li>
+            <li><span class="check check-yes">✓</span> Meta + Instagram Ads (Full)</li>
+            <li><span class="check check-yes">✓</span> TikTok Ads</li>
+            <li><span class="check check-yes">✓</span> LinkedIn Ads (B2B)</li>
+            <li><span class="check check-yes">✓</span> Email Marketing (4 campaigns/month)</li>
+            <li><span class="check check-yes">✓</span> Full SEO (On-Page + Technical)</li>
+            <li><span class="check check-yes">✓</span> SEM Strategy (Full)</li>
+            <li><span class="check check-yes">✓</span> Copywriting (5 pages/month)</li>
+            <li><span class="check check-yes">✓</span> Landing Pages</li>
+            <li><span class="check check-yes">✓</span> Custom Reporting Dashboard</li>
+            <li><span class="check check-yes">✓</span> Dedicated Account Manager</li>
+            <li><span class="check check-yes">✓</span> Bi-Weekly Strategy Calls</li>
+          </ul>
+          <a href="free-audit.html" class="pricing-cta pricing-cta-gold">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="pricing-card">
+        <div class="pricing-card-header">
+          <span class="pricing-badge">Enterprise</span>
+          <div class="pricing-name">Enterprise</div>
+          <div class="pricing-tagline">Custom engagement for ambitious brands requiring maximum firepower and senior strategic input.</div>
+        </div>
+        <div class="pricing-price-wrap">
+          <div class="pricing-price-row">
+            <span class="pricing-from">From</span>
+            <span class="pricing-amount">$7,000</span>
+            <span class="pricing-period">/month</span>
+          </div>
+          <div class="pricing-range">Fully customised based on scope and channels</div>
+        </div>
+        <div class="pricing-body">
+          <ul class="pricing-features">
+            <li><span class="check check-yes">✓</span> All channels — Advanced strategy</li>
+            <li><span class="check check-yes">✓</span> Unlimited Email Campaigns</li>
+            <li><span class="check check-yes">✓</span> Full SEO (On-Page, Technical, Local, PR)</li>
+            <li><span class="check check-yes">✓</span> Full Website Design + Development</li>
+            <li><span class="check check-yes">✓</span> Unlimited Copywriting</li>
+            <li><span class="check check-yes">✓</span> Real-Time Performance Dashboard</li>
+            <li><span class="check check-yes">✓</span> Dedicated Senior Account Manager</li>
+            <li><span class="check check-yes">✓</span> Weekly Strategy &amp; Optimisation Calls</li>
+            <li><span class="check check-yes">✓</span> Creative Team (Video, Design)</li>
+            <li><span class="check check-yes">✓</span> Executive Monthly Business Reviews</li>
+          </ul>
+          <a href="contact.html" class="pricing-cta pricing-cta-default">Contact Us</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="comparison">
+  <div class="container">
+    <span class="label">Full Breakdown</span>
+    <h2 style="color:var(--white);margin-top:.75rem">Feature Comparison</h2>
+    <div style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Starter</th>
+            <th>Growth</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Google Ads (Search)</td><td class="yes">Basic</td><td class="yes">Full</td><td class="yes">Advanced</td></tr>
+          <tr><td>Google Shopping / PMax</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>Meta / Instagram Ads</td><td class="yes">Basic</td><td class="yes">Full</td><td class="yes">Advanced</td></tr>
+          <tr><td>TikTok Ads</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>LinkedIn Ads</td><td class="no">—</td><td class="yes">B2B</td><td class="yes">Advanced</td></tr>
+          <tr><td>Email Campaigns / Month</td><td class="yes">2</td><td class="yes">4</td><td class="yes">Unlimited</td></tr>
+          <tr><td>Email Automation</td><td class="no">—</td><td class="yes">✓</td><td class="yes">Advanced</td></tr>
+          <tr><td>On-Page SEO</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>Technical SEO</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>Local SEO</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+          <tr><td>Link Building / Digital PR</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+          <tr><td>Copywriting (pages/month)</td><td class="yes">2</td><td class="yes">5</td><td class="yes">Unlimited</td></tr>
+          <tr><td>Landing Page Design</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>Full Website Design</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+          <tr><td>Monthly Reporting</td><td class="yes">Standard</td><td class="yes">Custom</td><td class="yes">Real-time</td></tr>
+          <tr><td>Dedicated Account Manager</td><td class="no">—</td><td class="yes">✓</td><td class="yes">Senior</td></tr>
+          <tr><td>Strategy Calls</td><td class="yes">Monthly</td><td class="yes">Bi-weekly</td><td class="yes">Weekly</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section class="addons">
+  <div class="container">
+    <span class="label">Project-Based Work</span>
+    <h2 style="margin-top:.75rem;margin-bottom:.5rem">Add-Ons &amp; One-Off Projects</h2>
+    <p>Need a specific deliverable alongside your retainer? We price these separately.</p>
+    <div class="addons-grid">
+      <div class="addon-card"><div class="addon-name">Website Design (5–8 pages)</div><div class="addon-price">$3,500 – $8,000</div><div class="addon-desc">Full WordPress or Webflow website including design, development, copy recommendations, and SEO setup.</div></div>
+      <div class="addon-card"><div class="addon-name">Full Website (10+ pages)</div><div class="addon-price">$8,000 – $25,000</div><div class="addon-desc">Enterprise-grade website with custom design system, advanced features, CMS, and integrations.</div></div>
+      <div class="addon-card"><div class="addon-name">SEO Audit</div><div class="addon-price">$750 – $2,500</div><div class="addon-desc">Comprehensive technical SEO audit with a prioritised action plan and implementation guidance.</div></div>
+      <div class="addon-card"><div class="addon-name">Google Ads Setup</div><div class="addon-price">$1,200 – $3,000</div><div class="addon-desc">One-time campaign architecture build, keyword research, ad copy, and tracking setup.</div></div>
+      <div class="addon-card"><div class="addon-name">Email Template Design</div><div class="addon-price">$500 – $2,000</div><div class="addon-desc">Custom branded email templates designed for your email platform (Klaviyo, HubSpot, etc.).</div></div>
+      <div class="addon-card"><div class="addon-name">Brand Strategy Workshop</div><div class="addon-price">$1,500 – $3,500</div><div class="addon-desc">Half-day or full-day session producing positioning, messaging framework, and brand voice guide.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <span class="label">Common Questions</span>
+    <h2 style="margin-top:.75rem;margin-bottom:.5rem">Pricing FAQs</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">Is the advertising budget included in the retainer?</div>
+        <div class="faq-a">No — the retainer covers our management fee. Ad spend is paid directly to the platforms (Google, Meta, etc.) and is on top of the retainer. We recommend a minimum ad budget based on your goals during the audit.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is there a minimum contract length?</div>
+        <div class="faq-a">We ask for an initial 3-month commitment to allow campaigns to optimise and deliver meaningful results. After that, contracts roll monthly. We believe in earning your business every month, not locking you in.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I upgrade or downgrade my plan?</div>
+        <div class="faq-a">Absolutely. We review your plan quarterly and adjust based on your growth, budget, and changing priorities. Many clients start on Starter and graduate to Growth as they scale.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What happens to my ad accounts if I leave?</div>
+        <div class="faq-a">All ad accounts, creative assets, tracking setups, and data belong to you — not us. We work inside your owned accounts from day one. Everything we build is yours to keep.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you work with businesses outside Poland?</div>
+        <div class="faq-a">Yes — we work with clients across Europe and internationally. Our team is fully remote and we work across all time zones. Client communication is in English, German, Romanian, or Polish.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How quickly can we get started?</div>
+        <div class="faq-a">After the free audit, most clients are fully onboarded and campaigns are live within 4 weeks. For urgent projects or quick-launch needs, we can often move faster.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="container">
+    <h2>Not Sure Which Plan Fits?</h2>
+    <p>Book a free 30-minute audit. We'll review your current marketing and recommend the right plan — with no pressure and no obligation.</p>
+    <a href="free-audit.html" class="btn btn-navy">Get My Free Audit →</a>
+  </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,106 @@
+/* ════════════════════════════════════════
+   NEXUS DIGITAL AGENCY — SHARED STYLES
+   Navy #0B1F3A · Gold #C9A84C
+   Playfair Display + DM Sans
+════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --navy:       #0B1F3A;
+  --navy-mid:   #152E52;
+  --navy-light: #1E3F6F;
+  --gold:       #C9A84C;
+  --gold-light: #E8C96B;
+  --gold-pale:  #F5E6B8;
+  --cream:      #FAF7F0;
+  --white:      #FFFFFF;
+  --gray-100:   #F4F2EE;
+  --gray-300:   #C8C4BB;
+  --gray-500:   #8A8680;
+  --gray-700:   #3D3B37;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans:  'DM Sans', system-ui, sans-serif;
+  --ease:  cubic-bezier(0.25,0.46,0.45,0.94);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--navy);overflow-x:hidden}
+h1,h2,h3{font-family:var(--serif)}
+h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700;line-height:1.1}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.2}
+h3{font-size:clamp(1rem,2vw,1.3rem);font-weight:600;line-height:1.4}
+p{font-size:1rem;line-height:1.8;color:var(--gray-700)}
+a{text-decoration:none;color:inherit}
+.label{font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.container{max-width:1160px;margin:0 auto;padding:0 2rem}
+.section{padding:6rem 0}
+.section-header{margin-bottom:4rem}
+.section-header .label{margin-bottom:1rem;display:block}
+.section-header h2{margin-bottom:1rem}
+.section-header p{max-width:560px}
+
+/* ── BUTTONS ── */
+.btn{display:inline-block;font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:1rem 2.5rem;border-radius:2px;cursor:pointer;transition:all .25s var(--ease);border:none;outline:none}
+.btn-gold{background:var(--gold);color:var(--navy)}.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.35)}.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.btn-navy{background:var(--navy);color:var(--white)}.btn-navy:hover{background:var(--navy-light);transform:translateY(-2px)}
+.btn-outline-navy{background:transparent;color:var(--navy);border:1px solid var(--navy)}.btn-outline-navy:hover{background:var(--navy);color:var(--white);transform:translateY(-2px)}
+
+/* ── NAVBAR ── */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,31,58,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,.15);padding:0 2rem}
+.navbar-inner{max-width:1160px;margin:0 auto;height:72px;display:flex;align-items:center;justify-content:space-between}
+.navbar-logo{display:flex;align-items:center;gap:12px}
+.navbar-logo-text .name{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--white);line-height:1}
+.navbar-logo-text .tagline{font-size:.6rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.navbar-nav{display:flex;align-items:center;gap:0;list-style:none}
+.navbar-nav a{font-size:.8rem;font-weight:500;letter-spacing:.04em;color:rgba(255,255,255,.6);padding:.5rem 1.1rem;transition:color .2s;position:relative}
+.navbar-nav a:hover{color:var(--gold)}
+.navbar-nav a.active{color:var(--gold)}
+.navbar-nav a.active::after{content:'';position:absolute;bottom:-4px;left:1.1rem;right:1.1rem;height:2px;background:var(--gold)}
+.navbar-cta{font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--navy);padding:.65rem 1.5rem;border-radius:2px;transition:all .2s;margin-left:1rem}
+.navbar-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.5rem}
+.hamburger span{width:22px;height:1.5px;background:var(--white);transition:all .3s}
+@media(max-width:768px){
+  .navbar-nav{display:none;position:absolute;top:72px;left:0;right:0;background:var(--navy);padding:1rem 2rem 1.5rem;flex-direction:column;align-items:flex-start;gap:0;border-top:1px solid rgba(201,168,76,.15)}
+  .navbar-nav.open{display:flex}
+  .navbar-nav a{padding:.75rem 0;width:100%}
+  .hamburger{display:flex}
+  .navbar-cta{display:none}
+}
+
+/* ── PAGE HERO (interior pages) ── */
+.page-hero{background:var(--navy);padding:8rem 0 5rem;position:relative;overflow:hidden}
+.page-hero-geo{position:absolute;top:0;right:0;bottom:0;width:50%;pointer-events:none}
+.page-hero-ring{position:absolute;border-radius:50%;border:1px solid rgba(201,168,76,.06)}
+.page-hero .label{margin-bottom:1rem;display:block}
+.page-hero h1{color:var(--white);margin-bottom:1.25rem}
+.page-hero h1 em{font-style:normal;color:var(--gold)}
+.page-hero-desc{font-size:1.05rem;color:rgba(255,255,255,.6);max-width:540px;line-height:1.8}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);padding:4rem 0 2rem;border-top:1px solid rgba(201,168,76,.15)}
+.footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand p{font-size:.875rem;color:rgba(255,255,255,.4);line-height:1.8;margin-top:1rem}
+.footer-col h4{font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:.6rem}
+.footer-links a{font-size:.85rem;color:rgba(255,255,255,.4);transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{padding-top:2rem;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:.8rem;color:rgba(255,255,255,.22)}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr}}
+
+/* ── CTA BAND ── */
+.cta-band{background:var(--gold);padding:5rem 0;text-align:center}
+.cta-band h2{color:var(--navy);margin-bottom:1rem}
+.cta-band p{color:rgba(11,31,58,.7);max-width:520px;margin:0 auto 2.5rem;font-size:1rem}
+
+/* ── FADE IN ANIMATION ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.fade-up{animation:fadeUp .7s var(--ease) both}
+.fade-up-1{animation-delay:.1s}
+.fade-up-2{animation-delay:.2s}
+.fade-up-3{animation-delay:.3s}
+.fade-up-4{animation-delay:.4s}

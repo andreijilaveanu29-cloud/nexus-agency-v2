@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Strategy Audit — Nexus Digital Agency</title>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ── AUDIT PAGE ── */
+.audit-section{background:var(--cream)}
+.audit-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;align-items:start}
+
+/* ── LEFT: WHAT YOU GET ── */
+.audit-benefit{display:flex;gap:1.25rem;align-items:flex-start;margin-bottom:1.75rem}
+.audit-benefit-num{font-family:var(--serif);font-size:1.8rem;font-weight:700;color:var(--gold);opacity:.35;line-height:1;flex-shrink:0;width:32px}
+.audit-benefit h4{font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:.3rem}
+.audit-benefit p{font-size:.875rem;color:var(--gray-500);line-height:1.7}
+.audit-checklist{background:var(--navy);border-radius:3px;padding:1.75rem;margin-top:2rem}
+.audit-checklist h4{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
+.audit-check-item{display:flex;align-items:center;gap:.85rem;font-size:.875rem;color:rgba(255,255,255,.7);padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.audit-check-item:last-child{border-bottom:none}
+.audit-check-item::before{content:'';width:16px;height:16px;border-radius:50%;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.4);flex-shrink:0}
+
+/* ── RIGHT: FORM ── */
+.audit-form-wrap{background:var(--white);border:1px solid var(--gray-300);border-radius:4px;overflow:hidden}
+.audit-form-header{background:var(--navy);padding:2rem 2.5rem;position:relative;overflow:hidden}
+.audit-form-header::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;border:1px solid rgba(201,168,76,.1)}
+.audit-form-header-title{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:.35rem;position:relative}
+.audit-form-header-sub{font-size:.85rem;color:rgba(255,255,255,.5);position:relative}
+.audit-form-badges{display:flex;gap:.6rem;margin-top:1.25rem;flex-wrap:wrap;position:relative}
+.audit-badge{font-size:.62rem;font-weight:600;letter-spacing:.08em;background:rgba(201,168,76,.15);color:var(--gold);padding:.3rem .85rem;border-radius:2px}
+.audit-form-body{padding:2.5rem}
+
+/* ── CHANNEL CHECKBOXES ── */
+.channel-checks{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.5rem}
+.channel-check{display:flex;align-items:center;gap:.6rem;cursor:pointer;padding:.55rem .85rem;border:1px solid var(--gray-300);border-radius:2px;transition:all .2s}
+.channel-check:hover{border-color:var(--gold);background:var(--cream)}
+.channel-check input[type=checkbox]{accent-color:var(--navy);width:14px;height:14px;flex-shrink:0}
+.channel-check span{font-size:.82rem;color:var(--gray-700)}
+
+/* ── STEPS ── */
+.form-steps{display:flex;gap:.75rem;margin-bottom:2rem}
+.form-step{flex:1;text-align:center;padding:.5rem;border-radius:2px;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;transition:all .2s;cursor:pointer}
+.form-step.active{background:var(--navy);color:var(--gold)}
+.form-step:not(.active){background:var(--gray-100);color:var(--gray-500)}
+
+/* ── TESTIMONIAL ── */
+.audit-social-proof{background:var(--navy-mid);padding:4rem 0}
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.proof-stat{text-align:center;padding:2rem 1.5rem;border:1px solid rgba(201,168,76,.12);border-radius:3px}
+.proof-stat-num{font-family:var(--serif);font-size:2.5rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.4rem}
+.proof-stat-label{font-size:.82rem;color:rgba(255,255,255,.5)}
+
+/* ── WHAT HAPPENS NEXT ── */
+.next-steps{background:var(--cream);padding:4rem 0}
+.next-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.next-card{text-align:center;padding:2.5rem 2rem;background:var(--white);border:1px solid var(--gray-300);border-radius:3px}
+.next-icon{width:56px;height:56px;border-radius:50%;border:1px solid var(--gray-300);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem}
+.next-step-num{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+.next-card h3{font-size:1rem;margin-bottom:.5rem}
+.next-card p{font-size:.85rem;color:var(--gray-500);line-height:1.7}
+
+/* ── SHARED FORM STYLES ── */
+.form-group{margin-bottom:1.25rem}
+.form-group label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:.5rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;font-family:var(--sans);font-size:.9rem;color:var(--navy);background:var(--cream);border:1px solid var(--gray-300);border-radius:2px;padding:.85rem 1rem;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);background:var(--white)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-group select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8680' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.form-submit-gold{width:100%;padding:1.15rem;font-family:var(--sans);font-size:.88rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--navy);border:none;border-radius:2px;cursor:pointer;transition:all .25s;margin-top:.5rem}
+.form-submit-gold:hover{background:var(--gold-light);transform:translateY(-1px)}
+.form-note{font-size:.75rem;color:var(--gray-500);text-align:center;margin-top:1rem;line-height:1.6}
+
+/* ── SUCCESS STATE ── */
+.success-state{display:none;text-align:center;padding:3rem 2rem}
+.success-icon{width:64px;height:64px;background:rgba(201,168,76,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem}
+.success-state h3{font-size:1.4rem;color:var(--navy);margin-bottom:.75rem}
+.success-state p{font-size:.9rem;color:var(--gray-500);max-width:340px;margin:0 auto;line-height:1.75}
+
+@media(max-width:960px){.audit-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.proof-grid,.next-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.channel-checks{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="free-audit">
+<script src="shared-nav.js"></script>
+
+<!-- HERO -->
+<section class="page-hero" style="background:var(--navy)">
+  <div class="page-hero-ring" style="width:600px;height:600px;top:-160px;right:-160px"></div>
+  <div class="page-hero-ring" style="width:380px;height:380px;top:-60px;right:-60px"></div>
+  <div class="container">
+    <span class="label fade-up">Completely Free · No Obligation</span>
+    <h1 class="fade-up fade-up-1">Your Free <em>Strategy Audit</em></h1>
+    <p class="page-hero-desc fade-up fade-up-2">In 30 minutes, we'll review your current digital marketing, identify the biggest gaps and opportunities, and give you a clear picture of what's possible — with no pitch and no pressure.</p>
+  </div>
+</section>
+
+<!-- MAIN AUDIT SECTION -->
+<section class="section audit-section">
+  <div class="container">
+    <div class="audit-grid">
+
+      <!-- LEFT: What you get -->
+      <div>
+        <span class="label" style="margin-bottom:1rem;display:block">What's Included</span>
+        <h2 style="margin-bottom:2rem;font-size:1.8rem">Everything in Your<br/>Free 30-Minute Audit</h2>
+
+        <div class="audit-benefit">
+          <div class="audit-benefit-num">1</div>
+          <div>
+            <h4>Ad Account Review</h4>
+            <p>We'll look at your existing Google Ads, Meta, LinkedIn, or TikTok accounts and identify wasted spend, structural issues, and quick-win optimisations you can implement immediately.</p>
+          </div>
+        </div>
+        <div class="audit-benefit">
+          <div class="audit-benefit-num">2</div>
+          <div>
+            <h4>Competitor Snapshot</h4>
+            <p>We'll show you what your top 3 competitors are doing on paid and organic channels — what they're spending, where they're advertising, and where the gaps are you can exploit.</p>
+          </div>
+        </div>
+        <div class="audit-benefit">
+          <div class="audit-benefit-num">3</div>
+          <div>
+            <h4>Channel Opportunity Map</h4>
+            <p>Based on your industry, audience, and goals, we'll map out which channels and tactics are most likely to move the needle — so you know where to focus your budget.</p>
+          </div>
+        </div>
+        <div class="audit-benefit">
+          <div class="audit-benefit-num">4</div>
+          <div>
+            <h4>Quick Wins &amp; 90-Day Roadmap</h4>
+            <p>You'll leave the call with specific, actionable recommendations you can start implementing right away — regardless of whether you work with us or not.</p>
+          </div>
+        </div>
+
+        <div class="audit-checklist">
+          <h4>What We'll Review</h4>
+          <div class="audit-check-item">Your current ad account structure &amp; performance</div>
+          <div class="audit-check-item">Website conversion rate &amp; landing page quality</div>
+          <div class="audit-check-item">Email marketing programme (if applicable)</div>
+          <div class="audit-check-item">SEO visibility &amp; organic search performance</div>
+          <div class="audit-check-item">Competitor advertising &amp; positioning</div>
+          <div class="audit-check-item">Audience targeting accuracy</div>
+          <div class="audit-check-item">Attribution &amp; tracking setup</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div>
+        <div class="audit-form-wrap">
+          <div class="audit-form-header">
+            <div class="audit-form-header-title">Book Your Free Audit</div>
+            <div class="audit-form-header-sub">30 minutes · No pitch · Immediately actionable</div>
+            <div class="audit-form-badges">
+              <span class="audit-badge">100% Free</span>
+              <span class="audit-badge">No Obligation</span>
+              <span class="audit-badge">Senior Strategist</span>
+              <span class="audit-badge">B2B &amp; B2C</span>
+            </div>
+          </div>
+
+          <div class="audit-form-body">
+            <div id="auditForm">
+              <div class="form-row">
+                <div class="form-group"><label>First Name *</label><input type="text" id="firstName" placeholder="Your first name" required/></div>
+                <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Your last name" required/></div>
+              </div>
+              <div class="form-group"><label>Business Email *</label><input type="email" placeholder="you@company.com" required/></div>
+              <div class="form-group"><label>Company Name *</label><input type="text" placeholder="Your company" required/></div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Business Type</label>
+                  <select><option value="">Select...</option><option>B2B</option><option>B2C</option><option>Both</option></select>
+                </div>
+                <div class="form-group">
+                  <label>Monthly Ad Budget</label>
+                  <select><option value="">Select range...</option><option>Under $1,000</option><option>$1,000 – $5,000</option><option>$5,000 – $15,000</option><option>$15,000+</option><option>No budget yet</option></select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Which channels would you like us to audit?</label>
+                <div class="channel-checks">
+                  <label class="channel-check"><input type="checkbox"/> <span>Google Ads</span></label>
+                  <label class="channel-check"><input type="checkbox"/> <span>Meta / Instagram</span></label>
+                  <label class="channel-check"><input type="checkbox"/> <span>LinkedIn Ads</span></label>
+                  <label class="channel-check"><input type="checkbox"/> <span>TikTok Ads</span></label>
+                  <label class="channel-check"><input type="checkbox"/> <span>Email Marketing</span></label>
+                  <label class="channel-check"><input type="checkbox"/> <span>SEO / Organic</span></label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Website URL</label>
+                <input type="url" placeholder="https://yourwebsite.com"/>
+              </div>
+
+              <div class="form-group">
+                <label>What's Your Biggest Marketing Challenge?</label>
+                <textarea placeholder="Tell us what's not working, what you've tried, or what you're hoping to improve. The more context you give us, the more useful the audit will be."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label>Preferred Audit Time</label>
+                <select>
+                  <option value="">Select preferred time...</option>
+                  <option>Morning (9:00–12:00 CET)</option>
+                  <option>Afternoon (12:00–16:00 CET)</option>
+                  <option>Late Afternoon (16:00–18:00 CET)</option>
+                  <option>Any time — just propose something</option>
+                </select>
+              </div>
+
+              <button class="form-submit-gold" onclick="submitAudit()">Book My Free Audit →</button>
+              <div class="form-note">We'll confirm your audit slot within 4 business hours. No credit card needed. No obligation whatsoever.</div>
+            </div>
+
+            <!-- Success State -->
+            <div class="success-state" id="successState">
+              <div class="success-icon">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"><path d="M5 14l6 6 12-12"/></svg>
+              </div>
+              <h3>You're Booked!</h3>
+              <p>Thank you! We'll reach out within 4 business hours to confirm your audit time and send you a short pre-call questionnaire.</p>
+              <a href="index.html" style="display:inline-block;margin-top:1.5rem;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold-pale);padding-bottom:2px">Return to Home →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<div class="audit-social-proof">
+  <div class="container">
+    <div class="proof-grid">
+      <div class="proof-stat">
+        <div class="proof-stat-num">150+</div>
+        <div class="proof-stat-label">Free audits completed for businesses across Europe</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-stat-num">4.8×</div>
+        <div class="proof-stat-label">Average ROAS improvement after 90 days</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-stat-num">30 min</div>
+        <div class="proof-stat-label">All it takes to get a clear growth roadmap</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT HAPPENS NEXT -->
+<section class="next-steps">
+  <div class="container">
+    <span class="label">The Process</span>
+    <h2 style="margin-top:.75rem;margin-bottom:.5rem">What Happens After You Book</h2>
+    <p>Three simple steps from submission to your actionable audit.</p>
+    <div class="next-grid">
+      <div class="next-card">
+        <div class="next-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--navy)" stroke-width="1.4" stroke-linecap="round"><rect x="2" y="4" width="18" height="14" rx="2"/><path d="M2 8l9 6 9-6"/></svg></div>
+        <div class="next-step-num">Step 1</div>
+        <h3>Confirmation Email</h3>
+        <p>Within 4 business hours you'll receive a confirmation with your audit slot, the Zoom link, and a short 5-minute pre-call form to help us prepare.</p>
+      </div>
+      <div class="next-card">
+        <div class="next-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--navy)" stroke-width="1.4" stroke-linecap="round"><path d="M3 20l4-8 4 3 4-5 4 2"/></svg></div>
+        <div class="next-step-num">Step 2</div>
+        <h3>We Do the Prep Work</h3>
+        <p>Before the call, our team reviews your website, ad accounts, competitors, and SEO visibility so we arrive with genuine insights — not generic advice.</p>
+      </div>
+      <div class="next-card">
+        <div class="next-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--navy)" stroke-width="1.4" stroke-linecap="round"><circle cx="11" cy="11" r="9"/><path d="M7 11l3 3 5-5"/></svg></div>
+        <div class="next-step-num">Step 3</div>
+        <h3>Your 30-Minute Audit</h3>
+        <p>A focused, no-fluff session on Zoom. We share what we found, what we recommend, and what it would look like to work together — only if it's the right fit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function submitAudit(){
+  const name = document.getElementById('firstName');
+  if(!name || !name.value.trim()){
+    name && name.focus();
+    return;
+  }
+  document.getElementById('auditForm').style.display = 'none';
+  document.getElementById('successState').style.display = 'block';
+}
+</script>
+</body>
+</html>
