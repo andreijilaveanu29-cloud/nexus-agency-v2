@@ -1,11 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Nexus Digital Agency — Performance-Driven Marketing</title>
-<link rel="stylesheet" href="shared.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-/* ── HERO ── */
+
+:root{--navy:#0B1F3A;--navy-mid:#152E52;--navy-light:#1E3F6F;--gold:#C9A84C;--gold-light:#E8C96B;--gold-pale:#F5E6B8;--cream:#FAF7F0;--white:#FFFFFF;--gray-100:#F4F2EE;--gray-300:#C8C4BB;--gray-500:#8A8680;--gray-700:#3D3B37;--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--ease:cubic-bezier(.25,.46,.45,.94)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--navy);overflow-x:hidden}
+h1,h2,h3{font-family:var(--serif)}
+h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700;line-height:1.1}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.2}
+h3{font-size:clamp(1rem,2vw,1.3rem);font-weight:600;line-height:1.4}
+p{font-size:1rem;line-height:1.8;color:var(--gray-700)}
+a{text-decoration:none;color:inherit}
+.label{font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.container{max-width:1160px;margin:0 auto;padding:0 2rem}
+.section{padding:6rem 0}
+.section-header{margin-bottom:4rem}
+.section-header .label{margin-bottom:1rem;display:block}
+.section-header h2{margin-bottom:1rem}
+.section-header p{max-width:560px}
+/* BUTTONS */
+.btn{display:inline-block;font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:1rem 2.5rem;border-radius:2px;cursor:pointer;transition:all .25s;border:none;outline:none}
+.btn-gold{background:var(--gold);color:var(--navy)}.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.35)}.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.btn-navy{background:var(--navy);color:var(--white)}.btn-navy:hover{background:var(--navy-light);transform:translateY(-2px)}
+/* NAVBAR */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(11,31,58,.98);border-bottom:1px solid rgba(201,168,76,.15);padding:0 2rem}
+.navbar-inner{max-width:1160px;margin:0 auto;height:72px;display:flex;align-items:center;justify-content:space-between}
+.navbar-logo{display:flex;align-items:center;gap:12px}
+.navbar-logo-text .name{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--white);line-height:1}
+.navbar-logo-text .tagline{font-size:.6rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.navbar-nav{display:flex;align-items:center;list-style:none;gap:0}
+.navbar-nav a{font-size:.8rem;font-weight:500;letter-spacing:.04em;color:rgba(255,255,255,.6);padding:.5rem 1.1rem;transition:color .2s;display:block}
+.navbar-nav a:hover,.navbar-nav a.active{color:var(--gold)}
+.navbar-cta{font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--navy);padding:.65rem 1.5rem;border-radius:2px;transition:all .2s;margin-left:1rem;white-space:nowrap}
+.navbar-cta:hover{background:var(--gold-light)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.5rem;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--white)}
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .navbar-cta{display:none}
+  .navbar-nav{display:none;position:absolute;top:72px;left:0;right:0;background:var(--navy);padding:1rem 2rem 1.5rem;flex-direction:column;align-items:flex-start;border-top:1px solid rgba(201,168,76,.15)}
+  .navbar-nav.open{display:flex}
+  .navbar-nav a{padding:.75rem 0;width:100%;border-bottom:1px solid rgba(255,255,255,.05)}
+}
+/* PAGE HERO */
+.page-hero{background:var(--navy);padding:8rem 0 5rem;position:relative;overflow:hidden;margin-top:72px}
+.page-hero-ring{position:absolute;border-radius:50%;border:1px solid rgba(201,168,76,.06)}
+.page-hero .label{margin-bottom:1rem;display:block}
+.page-hero h1{color:var(--white);margin-bottom:1.25rem}
+.page-hero h1 em{font-style:normal;color:var(--gold)}
+.page-hero-desc{font-size:1.05rem;color:rgba(255,255,255,.6);max-width:540px;line-height:1.8}
+/* FOOTER */
+footer{background:var(--navy);padding:4rem 0 2rem;border-top:1px solid rgba(201,168,76,.15)}
+.footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand p{font-size:.875rem;color:rgba(255,255,255,.4);line-height:1.8;margin-top:1rem}
+.footer-col h4{font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:.6rem}
+.footer-links a{font-size:.85rem;color:rgba(255,255,255,.4);transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{padding-top:2rem;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:.8rem;color:rgba(255,255,255,.22)}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr}}
+/* CTA BAND */
+.cta-band{background:var(--gold);padding:5rem 0;text-align:center}
+.cta-band h2{color:var(--navy);margin-bottom:1rem}
+.cta-band p{color:rgba(11,31,58,.7);max-width:520px;margin:0 auto 2.5rem;font-size:1rem}
+
+
 .hero{background:var(--navy);min-height:100vh;display:flex;align-items:center;padding-top:72px;position:relative;overflow:hidden}
 .hero-ring{position:absolute;border-radius:50%;border:1px solid rgba(201,168,76,.07)}
 .hero-ring-1{width:700px;height:700px;top:-160px;right:-160px}
@@ -20,31 +91,23 @@
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3.5rem}
 .hero-stats{display:flex;gap:3rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.1);flex-wrap:wrap}
 .stat-num{font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--gold);line-height:1}
-.stat-label{font-size:.72rem;color:rgba(255,255,255,.45);margin-top:.3rem;letter-spacing:.04em}
-
-/* ── CLIENTS ── */
+.stat-label{font-size:.72rem;color:rgba(255,255,255,.45);margin-top:.3rem}
 .clients{background:var(--navy-mid);padding:2rem 0;border-top:1px solid rgba(201,168,76,.1);border-bottom:1px solid rgba(201,168,76,.1)}
 .clients-inner{display:flex;align-items:center;gap:3rem;flex-wrap:wrap}
 .clients-label{font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.28);white-space:nowrap}
 .client-logos{display:flex;gap:2.5rem;align-items:center;flex-wrap:wrap;flex:1}
-.client-name{font-family:var(--serif);font-size:.95rem;font-weight:700;color:rgba(255,255,255,.18);letter-spacing:.04em}
-
-/* ── SERVICES PREVIEW ── */
-.services-preview{background:var(--cream)}
+.client-name{font-family:var(--serif);font-size:.95rem;font-weight:700;color:rgba(255,255,255,.18)}
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.svc-card{background:var(--white);border:1px solid var(--gray-300);border-top:3px solid var(--gold);border-radius:3px;padding:2rem 1.75rem;transition:all .3s var(--ease);position:relative;overflow:hidden}
-.svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--navy);transform:scaleX(0);transition:transform .3s var(--ease)}
+.svc-card{background:var(--white);border:1px solid var(--gray-300);border-top:3px solid var(--gold);border-radius:3px;padding:2rem 1.75rem;transition:all .3s;position:relative;overflow:hidden}
+.svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--navy);transform:scaleX(0);transition:transform .3s}
 .svc-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(11,31,58,.1)}
 .svc-card:hover::after{transform:scaleX(1)}
 .svc-icon{width:42px;height:42px;background:var(--navy);border-radius:3px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
 .svc-tag{font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
 .svc-card h3{margin-bottom:.6rem;color:var(--navy)}
 .svc-card p{font-size:.875rem;line-height:1.7}
-.svc-more{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.25rem;font-size:.78rem;font-weight:600;letter-spacing:.06em;color:var(--navy);border-bottom:1px solid var(--gray-300);padding-bottom:2px;transition:all .2s}
+.svc-more{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.25rem;font-size:.78rem;font-weight:600;color:var(--navy);border-bottom:1px solid var(--gray-300);padding-bottom:2px;transition:all .2s}
 .svc-card:hover .svc-more{color:var(--gold);border-color:var(--gold)}
-.view-all-wrap{text-align:center;margin-top:3rem}
-
-/* ── MARKETS ── */
 .markets{background:var(--navy)}
 .markets-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
 .market-card{border-radius:3px;padding:2.5rem 2rem;border:1px solid rgba(201,168,76,.14)}
@@ -56,24 +119,28 @@
 .market-list{list-style:none}
 .market-list li{font-size:.875rem;color:rgba(255,255,255,.6);padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:.75rem}
 .market-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
-
-/* ── WHY ── */
-.why{background:var(--cream)}
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .why-card{padding:2rem 1.75rem;background:var(--white);border:1px solid var(--gray-300);border-radius:3px;transition:border-color .3s}
 .why-card:hover{border-color:var(--gold)}
 .why-num{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--gold);opacity:.2;line-height:1;margin-bottom:.75rem}
 .why-card h3{margin-bottom:.5rem}
 .why-card p{font-size:.875rem;line-height:1.7}
-
 @media(max-width:900px){.svc-grid,.markets-grid,.why-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:580px){.svc-grid,.markets-grid,.why-grid{grid-template-columns:1fr}.hero-stats{gap:1.5rem}}
+
 </style>
 </head>
-<body data-page="index">
-<script src="shared-nav.js"></script>
+<body>
+<nav class="navbar" id="site-nav">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo"><svg width="34" height="34" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="6" r="3" fill="#C9A84C"/><circle cx="30" cy="24" r="3" fill="#C9A84C"/><circle cx="6" cy="24" r="3" fill="#C9A84C"/><line x1="18" y1="9" x2="6" y2="21" stroke="#C9A84C" stroke-width="1.2" opacity="0.7"/><line x1="18" y1="9" x2="30" y2="21" stroke="#C9A84C" stroke-width="1.2" opacity="0.7"/><line x1="6" y1="24" x2="30" y2="24" stroke="#C9A84C" stroke-width="1.2" opacity="0.7"/><circle cx="18" cy="19" r="3" fill="none" stroke="#C9A84C" stroke-width="1.2"/><circle cx="18" cy="19" r="1.2" fill="#C9A84C"/></svg><div class="navbar-logo-text"><div class="name">NEXUS</div><div class="tagline">Digital Agency</div></div></a>
+    <ul class="navbar-nav" id="navMenu"><li><a href="index.html" class="active">Home</a></li><li><a href="services.html">Services</a></li><li><a href="process.html">Process</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li><li><a href="free-audit.html">Free Audit</a></li></ul>
+    <a href="free-audit.html" class="navbar-cta">Free Audit</a>
+    <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<main>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="hero-ring hero-ring-1"></div>
@@ -81,24 +148,23 @@
   <div class="hero-ring hero-ring-3"></div>
   <div class="container">
     <div class="hero-content">
-      <span class="label fade-up">Full-Service Digital Marketing Agency</span>
-      <h1 class="fade-up fade-up-1">Growth Marketing<br/>for <em>Ambitious</em><br/>Brands.</h1>
-      <p class="hero-desc fade-up fade-up-2">Google Ads, Meta, LinkedIn &amp; TikTok advertising. Email campaigns. SEO &amp; SEM. Web design. Copywriting. Everything you need — under one roof.</p>
-      <p class="hero-channels fade-up fade-up-2">B2B &amp; B2C &nbsp;·&nbsp; Google &nbsp;·&nbsp; Meta &nbsp;·&nbsp; LinkedIn &nbsp;·&nbsp; TikTok &nbsp;·&nbsp; Email &nbsp;·&nbsp; SEO &nbsp;·&nbsp; SEM &nbsp;·&nbsp; Web Design</p>
-      <div class="hero-actions fade-up fade-up-3">
+      <span class="label" style="display:block;margin-bottom:1rem">Full-Service Digital Marketing Agency</span>
+      <h1>Growth Marketing<br/>for <em>Ambitious</em><br/>Brands.</h1>
+      <p class="hero-desc">Google Ads, Meta, LinkedIn &amp; TikTok advertising. Email campaigns. SEO &amp; SEM. Web design. Copywriting. Everything you need — under one roof.</p>
+      <p class="hero-channels">B2B &amp; B2C &nbsp;&middot;&nbsp; Google &nbsp;&middot;&nbsp; Meta &nbsp;&middot;&nbsp; LinkedIn &nbsp;&middot;&nbsp; TikTok &nbsp;&middot;&nbsp; Email &nbsp;&middot;&nbsp; SEO &nbsp;&middot;&nbsp; SEM &nbsp;&middot;&nbsp; Web Design</p>
+      <div class="hero-actions">
         <a href="free-audit.html" class="btn btn-gold">Get Your Free Strategy Audit</a>
         <a href="services.html" class="btn btn-outline">Explore Services</a>
       </div>
-      <div class="hero-stats fade-up fade-up-4">
+      <div class="hero-stats">
         <div><div class="stat-num">150+</div><div class="stat-label">Campaigns Launched</div></div>
-        <div><div class="stat-num">4.8×</div><div class="stat-label">Average ROAS</div></div>
+        <div><div class="stat-num">4.8&times;</div><div class="stat-label">Average ROAS</div></div>
         <div><div class="stat-num">B2B+B2C</div><div class="stat-label">Markets Served</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CLIENTS -->
 <div class="clients">
   <div class="container">
     <div class="clients-inner">
@@ -114,8 +180,7 @@
   </div>
 </div>
 
-<!-- SERVICES PREVIEW -->
-<section class="section services-preview">
+<section class="section" style="background:var(--cream)">
   <div class="container">
     <div class="section-header">
       <span class="label">What We Do</span>
@@ -123,54 +188,16 @@
       <p>Every service you need to grow online — from paid media and email to SEO, web design, and conversion-focused copywriting.</p>
     </div>
     <div class="svc-grid">
-      <div class="svc-card">
-        <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="4" width="18" height="14" rx="2"/><path d="M8 10l2 2 4-4"/></svg></div>
-        <div class="svc-tag">Paid Social</div>
-        <h3>Social Media Advertising</h3>
-        <p>Meta, TikTok, LinkedIn — full-funnel paid campaigns built to convert, not just reach.</p>
-        <a href="services.html" class="svc-more">Learn more →</a>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><circle cx="10" cy="10" r="7"/><path d="M15 15l4 4"/></svg></div>
-        <div class="svc-tag">Search</div>
-        <h3>Google Ads &amp; SEM</h3>
-        <p>Search, Shopping, Performance Max — every corner of Google's advertising ecosystem.</p>
-        <a href="services.html" class="svc-more">Learn more →</a>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="4" width="18" height="14" rx="2"/><path d="M2 8l9 6 9-6"/></svg></div>
-        <div class="svc-tag">Email</div>
-        <h3>Email Marketing</h3>
-        <p>Campaigns, drip automation, and lifecycle sequences that nurture leads and drive revenue.</p>
-        <a href="services.html" class="svc-more">Learn more →</a>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M3 18l4-8 4 4 4-6 4 2"/></svg></div>
-        <div class="svc-tag">Organic</div>
-        <h3>SEO</h3>
-        <p>Technical SEO, content strategy, authority link building — organic traffic that compounds.</p>
-        <a href="services.html" class="svc-more">Learn more →</a>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="16" height="16" rx="2"/><path d="M7 8h8M7 12h6M7 16h4"/></svg></div>
-        <div class="svc-tag">Creative</div>
-        <h3>Web Design &amp; Copywriting</h3>
-        <p>Conversion-optimized websites and persuasive copy that speaks to your audience.</p>
-        <a href="services.html" class="svc-more">Learn more →</a>
-      </div>
-      <div class="svc-card" style="background:var(--navy);border-color:var(--navy)">
-        <div style="height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start">
-          <span class="label" style="margin-bottom:1rem;display:block">All Services</span>
-          <h3 style="color:var(--white);margin-bottom:.75rem">Everything Your Brand Needs</h3>
-          <p style="color:rgba(255,255,255,.5);font-size:.875rem;margin-bottom:1.5rem">Six core service lines. One accountable team. Zero agency chaos.</p>
-          <a href="services.html" class="btn btn-gold" style="font-size:.75rem;padding:.8rem 1.75rem">View All Services</a>
-        </div>
-      </div>
+      <div class="svc-card"><div class="svc-icon"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="4" width="18" height="14" rx="2"/><path d="M8 10l2 2 4-4"/></svg></div><div class="svc-tag">Paid Social</div><h3>Social Media Advertising</h3><p>Meta, TikTok, LinkedIn — full-funnel paid campaigns built to convert, not just reach.</p><a href="services.html" class="svc-more">Learn more &rarr;</a></div>
+      <div class="svc-card"><div class="svc-icon"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><circle cx="10" cy="10" r="7"/><path d="M15 15l4 4"/></svg></div><div class="svc-tag">Search</div><h3>Google Ads &amp; SEM</h3><p>Search, Shopping, Performance Max — every corner of Google's advertising ecosystem.</p><a href="services.html" class="svc-more">Learn more &rarr;</a></div>
+      <div class="svc-card"><div class="svc-icon"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="4" width="18" height="14" rx="2"/><path d="M2 8l9 6 9-6"/></svg></div><div class="svc-tag">Email</div><h3>Email Marketing</h3><p>Campaigns, drip automation, and lifecycle sequences that nurture leads and drive revenue.</p><a href="services.html" class="svc-more">Learn more &rarr;</a></div>
+      <div class="svc-card"><div class="svc-icon"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M3 18l4-8 4 4 4-6 4 2"/></svg></div><div class="svc-tag">Organic</div><h3>SEO</h3><p>Technical SEO, content strategy, authority link building — organic traffic that compounds.</p><a href="services.html" class="svc-more">Learn more &rarr;</a></div>
+      <div class="svc-card"><div class="svc-icon"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="16" height="16" rx="2"/><path d="M7 8h8M7 12h6M7 16h4"/></svg></div><div class="svc-tag">Creative</div><h3>Web Design &amp; Copywriting</h3><p>Conversion-optimized websites and persuasive copy that speaks to your audience.</p><a href="services.html" class="svc-more">Learn more &rarr;</a></div>
+      <div class="svc-card" style="background:var(--navy);border-color:var(--navy)"><div style="height:100%;display:flex;flex-direction:column;justify-content:center"><span class="label" style="margin-bottom:1rem;display:block">All Services</span><h3 style="color:var(--white);margin-bottom:.75rem">Everything Your Brand Needs</h3><p style="color:rgba(255,255,255,.5);font-size:.875rem;margin-bottom:1.5rem">Six core service lines. One accountable team. Zero agency chaos.</p><a href="services.html" class="btn btn-gold" style="font-size:.75rem;padding:.8rem 1.75rem">View All Services</a></div></div>
     </div>
   </div>
 </section>
 
-<!-- MARKETS -->
 <section class="section markets">
   <div class="container">
     <div class="section-header">
@@ -179,36 +206,13 @@
       <p style="color:rgba(255,255,255,.5)">We understand the fundamental differences — and we build strategies tailored to each.</p>
     </div>
     <div class="markets-grid">
-      <div class="market-card b2b">
-        <span class="market-badge">B2B</span>
-        <h3>Business-to-Business</h3>
-        <p>Long sales cycles, complex committees, high-value deals — we build pipelines that convert.</p>
-        <ul class="market-list">
-          <li>SaaS &amp; Technology Companies</li>
-          <li>Professional Services (Legal, Finance, HR)</li>
-          <li>Manufacturing &amp; Industrial</li>
-          <li>Healthcare &amp; MedTech</li>
-          <li>E-learning &amp; EdTech Platforms</li>
-        </ul>
-      </div>
-      <div class="market-card b2c">
-        <span class="market-badge">B2C</span>
-        <h3>Business-to-Consumer</h3>
-        <p>Emotional decisions, shorter funnels, volume-driven growth — we build brands people choose.</p>
-        <ul class="market-list">
-          <li>E-commerce (Fashion, Beauty, Electronics)</li>
-          <li>Restaurant &amp; Hospitality Groups</li>
-          <li>Consumer Apps &amp; Subscriptions</li>
-          <li>Local Service Businesses</li>
-          <li>Consumer Goods &amp; FMCG</li>
-        </ul>
-      </div>
+      <div class="market-card b2b"><span class="market-badge">B2B</span><h3>Business-to-Business</h3><p>Long sales cycles, complex committees, high-value deals — we build pipelines that convert.</p><ul class="market-list"><li>SaaS &amp; Technology Companies</li><li>Professional Services (Legal, Finance, HR)</li><li>Manufacturing &amp; Industrial</li><li>Healthcare &amp; MedTech</li><li>E-learning &amp; EdTech Platforms</li></ul></div>
+      <div class="market-card b2c"><span class="market-badge">B2C</span><h3>Business-to-Consumer</h3><p>Emotional decisions, shorter funnels, volume-driven growth — we build brands people choose.</p><ul class="market-list"><li>E-commerce (Fashion, Beauty, Electronics)</li><li>Restaurant &amp; Hospitality Groups</li><li>Consumer Apps &amp; Subscriptions</li><li>Local Service Businesses</li><li>Consumer Goods &amp; FMCG</li></ul></div>
     </div>
   </div>
 </section>
 
-<!-- WHY US -->
-<section class="section why">
+<section class="section" style="background:var(--cream)">
   <div class="container">
     <div class="section-header">
       <span class="label">Why Nexus</span>
@@ -226,13 +230,29 @@
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta-band">
   <div class="container">
     <h2>Ready to Scale Your Brand?</h2>
     <p>Book a free 30-minute strategy audit. We'll show you exactly where the growth is hiding.</p>
-    <a href="free-audit.html" class="btn btn-navy">Book Your Free Audit →</a>
+    <a href="free-audit.html" class="btn btn-navy">Book Your Free Audit &rarr;</a>
   </div>
 </section>
+
+</main>
+<footer id="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:.5rem"><svg width="28" height="28" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="6" r="3" fill="#C9A84C"/><circle cx="30" cy="24" r="3" fill="#C9A84C"/><circle cx="6" cy="24" r="3" fill="#C9A84C"/><line x1="18" y1="9" x2="6" y2="21" stroke="#C9A84C" stroke-width="1.2" opacity="0.7"/><line x1="18" y1="9" x2="30" y2="21" stroke="#C9A84C" stroke-width="1.2" opacity="0.7"/><line x1="6" y1="24" x2="30" y2="24" stroke="#C9A84C" stroke-width="1.2" opacity="0.7"/><circle cx="18" cy="19" r="3" fill="none" stroke="#C9A84C" stroke-width="1.2"/><circle cx="18" cy="19" r="1.2" fill="#C9A84C"/></svg><span style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff">NEXUS</span><span style="font-size:.6rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;align-self:flex-end;padding-bottom:2px">Digital Agency</span></div>
+        <p>Full-service digital marketing for B2B and B2C brands. Performance, transparency, and results that compound.</p>
+        <p style="margin-top:.75rem"><a href="mailto:info@nexusdigital.agency" style="color:#C9A84C;font-size:.85rem">info@nexusdigital.agency</a></p>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="services.html">Google Ads</a></li><li><a href="services.html">Meta Advertising</a></li><li><a href="services.html">LinkedIn Ads</a></li><li><a href="services.html">TikTok Ads</a></li><li><a href="services.html">Email Marketing</a></li><li><a href="services.html">SEO &amp; SEM</a></li><li><a href="services.html">Web Design</a></li><li><a href="services.html">Copywriting</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="process.html">Our Process</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Get Started</h4><ul class="footer-links"><li><a href="free-audit.html">Free Audit</a></li><li><a href="contact.html">Get a Quote</a></li><li><a href="contact.html">Warsaw, Poland</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">Instagram</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 Nexus Digital Agency. All rights reserved.</p><p>Privacy Policy &nbsp;&middot;&nbsp; Terms of Service</p></div>
+  </div>
+</footer>
 </body>
 </html>
