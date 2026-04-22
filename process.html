@@ -1,12 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Our Process — Nexus Digital Agency</title>
-<link rel="stylesheet" href="shared.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-/* ── PHASE BLOCKS ── */
-.process-section{background:var(--cream)}
+
+:root{--navy:#0B1F3A;--navy-mid:#152E52;--navy-light:#1E3F6F;--gold:#C9A84C;--gold-light:#E8C96B;--gold-pale:#F5E6B8;--cream:#FAF7F0;--white:#FFFFFF;--gray-100:#F4F2EE;--gray-300:#C8C4BB;--gray-500:#8A8680;--gray-700:#3D3B37;--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--ease:cubic-bezier(.25,.46,.45,.94)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--navy);overflow-x:hidden}
+h1,h2,h3{font-family:var(--serif)}
+h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700;line-height:1.1}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.2}
+h3{font-size:clamp(1rem,2vw,1.3rem);font-weight:600;line-height:1.4}
+p{font-size:1rem;line-height:1.8;color:var(--gray-700)}
+a{text-decoration:none;color:inherit}
+.label{font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.container{max-width:1160px;margin:0 auto;padding:0 2rem}
+.section{padding:6rem 0}
+.section-header{margin-bottom:4rem}
+.section-header .label{margin-bottom:1rem;display:block}
+.section-header h2{margin-bottom:1rem}
+.section-header p{max-width:560px}
+/* BUTTONS */
+.btn{display:inline-block;font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:1rem 2.5rem;border-radius:2px;cursor:pointer;transition:all .25s;border:none;outline:none}
+.btn-gold{background:var(--gold);color:var(--navy)}.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.35)}.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.btn-navy{background:var(--navy);color:var(--white)}.btn-navy:hover{background:var(--navy-light);transform:translateY(-2px)}
+/* NAVBAR */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(11,31,58,.98);border-bottom:1px solid rgba(201,168,76,.15);padding:0 2rem}
+.navbar-inner{max-width:1160px;margin:0 auto;height:72px;display:flex;align-items:center;justify-content:space-between}
+.navbar-logo{display:flex;align-items:center;gap:12px}
+.navbar-logo-text .name{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--white);line-height:1}
+.navbar-logo-text .tagline{font-size:.6rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.navbar-nav{display:flex;align-items:center;list-style:none;gap:0}
+.navbar-nav a{font-size:.8rem;font-weight:500;letter-spacing:.04em;color:rgba(255,255,255,.6);padding:.5rem 1.1rem;transition:color .2s;display:block}
+.navbar-nav a:hover,.navbar-nav a.active{color:var(--gold)}
+.navbar-cta{font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--navy);padding:.65rem 1.5rem;border-radius:2px;transition:all .2s;margin-left:1rem;white-space:nowrap}
+.navbar-cta:hover{background:var(--gold-light)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.5rem;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--white)}
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .navbar-cta{display:none}
+  .navbar-nav{display:none;position:absolute;top:72px;left:0;right:0;background:var(--navy);padding:1rem 2rem 1.5rem;flex-direction:column;align-items:flex-start;border-top:1px solid rgba(201,168,76,.15)}
+  .navbar-nav.open{display:flex}
+  .navbar-nav a{padding:.75rem 0;width:100%;border-bottom:1px solid rgba(255,255,255,.05)}
+}
+/* PAGE HERO */
+.page-hero{background:var(--navy);padding:8rem 0 5rem;position:relative;overflow:hidden;margin-top:72px}
+.page-hero-ring{position:absolute;border-radius:50%;border:1px solid rgba(201,168,76,.06)}
+.page-hero .label{margin-bottom:1rem;display:block}
+.page-hero h1{color:var(--white);margin-bottom:1.25rem}
+.page-hero h1 em{font-style:normal;color:var(--gold)}
+.page-hero-desc{font-size:1.05rem;color:rgba(255,255,255,.6);max-width:540px;line-height:1.8}
+/* FOOTER */
+footer{background:var(--navy);padding:4rem 0 2rem;border-top:1px solid rgba(201,168,76,.15)}
+.footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand p{font-size:.875rem;color:rgba(255,255,255,.4);line-height:1.8;margin-top:1rem}
+.footer-col h4{font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:.6rem}
+.footer-links a{font-size:.85rem;color:rgba(255,255,255,.4);transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{padding-top:2rem;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:.8rem;color:rgba(255,255,255,.22)}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr}}
+/* CTA BAND */
+.cta-band{background:var(--gold);padding:5rem 0;text-align:center}
+.cta-band h2{color:var(--navy);margin-bottom:1rem}
+.cta-band p{color:rgba(11,31,58,.7);max-width:520px;margin:0 auto 2.5rem;font-size:1rem}
+
+
 .phase{display:grid;grid-template-columns:280px 1fr;gap:4rem;padding:4rem 0;border-bottom:1px solid var(--gray-300);align-items:start}
 .phase:last-child{border-bottom:none}
 .phase-left{position:sticky;top:100px}
@@ -14,200 +84,106 @@
 .phase-badge{display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);border:1px solid rgba(201,168,76,.25);padding:.65rem 1.25rem;border-radius:3px;margin-bottom:1rem}
 .phase-badge-num{font-size:.65rem;font-weight:700;letter-spacing:.1em;color:var(--gold)}
 .phase-badge-label{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)}
-.phase-left h3{font-size:1.6rem;color:var(--navy);margin-bottom:.5rem}
+.phase-left h3{font-size:1.5rem;color:var(--navy);margin-bottom:.5rem}
 .phase-timeline{font-size:.75rem;font-weight:600;letter-spacing:.1em;color:var(--gold);text-transform:uppercase}
-.phase-right p{margin-bottom:1.25rem;max-width:580px}
-.phase-steps{margin:2rem 0;display:flex;flex-direction:column;gap:1rem}
-.phase-step{display:flex;gap:1.25rem;align-items:flex-start;background:var(--white);border:1px solid var(--gray-300);border-left:3px solid var(--gold);border-radius:3px;padding:1.25rem 1.5rem}
+.phase-step{display:flex;gap:1.25rem;align-items:flex-start;background:var(--white);border:1px solid var(--gray-300);border-left:3px solid var(--gold);border-radius:3px;padding:1.25rem 1.5rem;margin-bottom:1rem}
 .phase-step-icon{width:36px;height:36px;background:var(--navy);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .phase-step-title{font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:.25rem}
 .phase-step-desc{font-size:.82rem;color:var(--gray-500);line-height:1.65}
-
-/* ── TIMELINE OVERVIEW ── */
 .timeline-band{background:var(--navy);padding:4rem 0}
-.timeline{display:flex;gap:0;position:relative}
+.timeline{display:flex;position:relative}
 .timeline::before{content:'';position:absolute;top:28px;left:28px;right:28px;height:1px;background:rgba(201,168,76,.2)}
-.timeline-step{flex:1;text-align:center;position:relative;padding:0 .5rem}
-.timeline-dot{width:56px;height:56px;border-radius:50%;border:1px solid rgba(201,168,76,.3);background:var(--navy);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;position:relative;z-index:1;transition:all .3s}
-.timeline-dot:hover{border-color:var(--gold);background:var(--navy-light)}
+.timeline-step{flex:1;text-align:center;position:relative}
+.timeline-dot{width:56px;height:56px;border-radius:50%;border:1px solid rgba(201,168,76,.3);background:var(--navy);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;position:relative;z-index:1}
 .timeline-dot-num{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--gold)}
 .timeline-label{font-size:.8rem;font-weight:600;color:var(--white);margin-bottom:.35rem}
 .timeline-sub{font-size:.72rem;color:rgba(255,255,255,.4)}
-
-/* ── TOOLS ── */
-.tools-section{background:var(--gray-100);padding:4rem 0}
 .tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:2.5rem}
 .tool-card{background:var(--white);border:1px solid var(--gray-300);border-radius:3px;padding:1.5rem 1.25rem;text-align:center}
 .tool-category{font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem}
 .tool-names{font-size:.82rem;color:var(--gray-700);line-height:1.8}
-
-@media(max-width:900px){.phase{grid-template-columns:1fr}.phase-left{position:static}.timeline{flex-direction:column;align-items:flex-start;padding-left:28px}.timeline::before{top:28px;bottom:28px;left:28px;right:auto;width:1px;height:auto}.tools-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){.phase{grid-template-columns:1fr}.phase-left{position:static}.timeline{flex-direction:column;align-items:flex-start;padding-left:28px}.timeline::before{top:0;bottom:0;left:28px;right:auto;width:1px;height:100%}.tools-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.tools-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
-<body data-page="process">
-<script src="shared-nav.js"></script>
+<body>
+<nav class="navbar" id="site-nav">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo"><svg width="34" height="34" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="6" r="3" fill="#C9A84C"/><circle cx="30" cy="24" r="3" fill="#C9A84C"/><circle cx="6" cy="24" r="3" fill="#C9A84C"/><line x1="18" y1="9" x2="6" y2="21" stroke="#C9A84C" stroke-width="1.2" opacity="0.7"/><line x1="18" y1="9" x2="30" y2="21" stroke="#C9A84C" stroke-width="1.2" opacity="0.7"/><line x1="6" y1="24" x2="30" y2="24" stroke="#C9A84C" stroke-width="1.2" opacity="0.7"/><circle cx="18" cy="19" r="3" fill="none" stroke="#C9A84C" stroke-width="1.2"/><circle cx="18" cy="19" r="1.2" fill="#C9A84C"/></svg><div class="navbar-logo-text"><div class="name">NEXUS</div><div class="tagline">Digital Agency</div></div></a>
+    <ul class="navbar-nav" id="navMenu"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="process.html" class="active">Process</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li><li><a href="free-audit.html">Free Audit</a></li></ul>
+    <a href="free-audit.html" class="navbar-cta">Free Audit</a>
+    <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<main>
 
-<!-- HERO -->
 <section class="page-hero">
   <div class="page-hero-ring" style="width:500px;height:500px;top:-120px;right:-120px"></div>
-  <div class="page-hero-ring" style="width:300px;height:300px;top:-20px;right:-20px"></div>
   <div class="container">
-    <span class="label fade-up">How We Work</span>
-    <h1 class="fade-up fade-up-1">Our <em>Process</em></h1>
-    <p class="page-hero-desc fade-up fade-up-2">A repeatable, four-phase system built to deliver consistent results — from first conversation to continuous optimisation. No guesswork, no surprises.</p>
+    <span class="label">How We Work</span>
+    <h1>Our <em>Process</em></h1>
+    <p class="page-hero-desc">A repeatable four-phase system built to deliver consistent results — from first conversation to continuous optimisation. No guesswork, no surprises.</p>
   </div>
 </section>
 
-<!-- TIMELINE OVERVIEW -->
 <div class="timeline-band">
   <div class="container">
     <div class="timeline">
-      <div class="timeline-step"><div class="timeline-dot"><span class="timeline-dot-num">01</span></div><div class="timeline-label">Discovery</div><div class="timeline-sub">Week 1–2</div></div>
-      <div class="timeline-step"><div class="timeline-dot"><span class="timeline-dot-num">02</span></div><div class="timeline-label">Strategy</div><div class="timeline-sub">Week 2–3</div></div>
+      <div class="timeline-step"><div class="timeline-dot"><span class="timeline-dot-num">01</span></div><div class="timeline-label">Discovery</div><div class="timeline-sub">Week 1&ndash;2</div></div>
+      <div class="timeline-step"><div class="timeline-dot"><span class="timeline-dot-num">02</span></div><div class="timeline-label">Strategy</div><div class="timeline-sub">Week 2&ndash;3</div></div>
       <div class="timeline-step"><div class="timeline-dot"><span class="timeline-dot-num">03</span></div><div class="timeline-label">Launch</div><div class="timeline-sub">Week 4</div></div>
       <div class="timeline-step"><div class="timeline-dot"><span class="timeline-dot-num">04</span></div><div class="timeline-label">Optimise</div><div class="timeline-sub">Ongoing</div></div>
     </div>
   </div>
 </div>
 
-<!-- PHASE DETAIL -->
-<section class="section process-section">
+<section class="section" style="background:var(--cream)">
   <div class="container">
-
-    <!-- Phase 01 -->
     <div class="phase">
-      <div class="phase-left">
-        <div class="phase-num">01</div>
-        <div class="phase-badge"><span class="phase-badge-num">Phase 01</span><span class="phase-badge-label">Discovery &amp; Audit</span></div>
-        <h3>We listen, learn, and diagnose.</h3>
-        <p class="phase-timeline" style="margin-top:.75rem">Timeline: Week 1–2</p>
-      </div>
-      <div class="phase-right">
-        <p>Before we write a single ad or send a single email, we do the work that most agencies skip: deep discovery. We analyse everything — your current marketing performance, your competitors, your audience, and your business model — to understand exactly where your growth opportunities lie and what's been holding you back.</p>
-        <p>This phase produces a clear, documented picture of your starting position and the strategic rationale for everything we'll build together.</p>
-        <div class="phase-steps">
-          <div class="phase-step">
-            <div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><path d="M2 10l4 4 10-10"/></svg></div>
-            <div><div class="phase-step-title">Kickoff Call &amp; Questionnaire</div><div class="phase-step-desc">Structured discovery session covering your goals, audiences, competitive landscape, current challenges, and definition of success.</div></div>
-          </div>
-          <div class="phase-step">
-            <div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><circle cx="9" cy="7" r="5"/><path d="M9 12v5M6 15h6"/></svg></div>
-            <div><div class="phase-step-title">Advertising Account Audit</div><div class="phase-step-desc">Full audit of existing Google Ads, Meta, LinkedIn, TikTok, and email accounts — identifying wasted spend, missed opportunities, and structural issues.</div></div>
-          </div>
-          <div class="phase-step">
-            <div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><path d="M2 14l3-6 4 3 3-5 4 2"/></svg></div>
-            <div><div class="phase-step-title">Competitor &amp; Market Analysis</div><div class="phase-step-desc">Mapping the competitive landscape: who is advertising, on which channels, with what messaging — and where the gaps are you can exploit.</div></div>
-          </div>
-          <div class="phase-step">
-            <div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><rect x="2" y="2" width="14" height="14" rx="2"/><path d="M6 6h6M6 10h4"/></svg></div>
-            <div><div class="phase-step-title">Audit Report &amp; Findings Presentation</div><div class="phase-step-desc">A clear, jargon-free report documenting everything we found, our interpretation of the data, and our initial strategic recommendations.</div></div>
-          </div>
-        </div>
-      </div>
+      <div class="phase-left"><div class="phase-num">01</div><div class="phase-badge"><span class="phase-badge-num">Phase 01</span><span class="phase-badge-label">Discovery &amp; Audit</span></div><h3>We listen, learn, and diagnose.</h3><p class="phase-timeline" style="margin-top:.75rem">Week 1&ndash;2</p></div>
+      <div><p>Before we write a single ad, we do the work most agencies skip: deep discovery. We analyse your current marketing, competitors, and audience to understand exactly where your growth opportunities lie.</p>
+      <div style="margin-top:1.5rem">
+        <div class="phase-step"><div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><path d="M2 10l4 4 10-10"/></svg></div><div><div class="phase-step-title">Kickoff Call &amp; Questionnaire</div><div class="phase-step-desc">Structured discovery session covering goals, audiences, competitive landscape, and definition of success.</div></div></div>
+        <div class="phase-step"><div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><circle cx="9" cy="7" r="5"/><path d="M9 12v5M6 15h6"/></svg></div><div><div class="phase-step-title">Advertising Account Audit</div><div class="phase-step-desc">Full audit of existing Google Ads, Meta, LinkedIn, TikTok, and email accounts — identifying wasted spend and missed opportunities.</div></div></div>
+        <div class="phase-step"><div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><path d="M2 14l3-6 4 3 3-5 4 2"/></svg></div><div><div class="phase-step-title">Competitor &amp; Market Analysis</div><div class="phase-step-desc">Mapping the competitive landscape: who is advertising, on which channels, and where the gaps are you can exploit.</div></div></div>
+        <div class="phase-step"><div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><rect x="2" y="2" width="14" height="14" rx="2"/><path d="M6 6h6M6 10h4"/></svg></div><div><div class="phase-step-title">Audit Report &amp; Findings Presentation</div><div class="phase-step-desc">A clear, jargon-free report documenting everything we found with strategic recommendations.</div></div></div>
+      </div></div>
     </div>
-
-    <!-- Phase 02 -->
     <div class="phase">
-      <div class="phase-left">
-        <div class="phase-num">02</div>
-        <div class="phase-badge"><span class="phase-badge-num">Phase 02</span><span class="phase-badge-label">Strategy &amp; Architecture</span></div>
-        <h3>We design the blueprint.</h3>
-        <p class="phase-timeline" style="margin-top:.75rem">Timeline: Week 2–3</p>
-      </div>
-      <div class="phase-right">
-        <p>Armed with the insights from Discovery, we design a full-funnel growth strategy tailored to your goals, budget, and competitive position. This is where we make the big decisions: which channels, which audiences, which messages, and which metrics matter.</p>
-        <p>The strategy document we produce isn't a slide deck of vague recommendations — it's an actionable blueprint with campaign architectures, audience maps, creative briefs, and KPI frameworks.</p>
-        <div class="phase-steps">
-          <div class="phase-step">
-            <div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><path d="M9 2v4M9 12v4M2 9h4M12 9h4"/></svg></div>
-            <div><div class="phase-step-title">Channel &amp; Budget Strategy</div><div class="phase-step-desc">Recommending the optimal channel mix and budget allocation based on your audience, goals, and competitive landscape.</div></div>
-          </div>
-          <div class="phase-step">
-            <div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><rect x="2" y="4" width="14" height="11" rx="2"/><path d="M6 8h6M6 11h4"/></svg></div>
-            <div><div class="phase-step-title">Campaign Architecture Design</div><div class="phase-step-desc">Building the full campaign and ad set structure, targeting layers, and bidding strategy before a single campaign goes live.</div></div>
-          </div>
-          <div class="phase-step">
-            <div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l3 3"/></svg></div>
-            <div><div class="phase-step-title">Audience Research &amp; Persona Mapping</div><div class="phase-step-desc">Building detailed audience segments for each platform, including custom audiences, lookalikes, intent signals, and exclusion lists.</div></div>
-          </div>
-          <div class="phase-step">
-            <div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><rect x="3" y="3" width="12" height="12" rx="1"/><path d="M6 6h6M6 9h4"/></svg></div>
-            <div><div class="phase-step-title">Creative Brief &amp; KPI Framework</div><div class="phase-step-desc">Defining the creative direction, messaging hierarchy, and the specific KPIs we'll be held accountable to — agreed upfront with you.</div></div>
-          </div>
-        </div>
-      </div>
+      <div class="phase-left"><div class="phase-num">02</div><div class="phase-badge"><span class="phase-badge-num">Phase 02</span><span class="phase-badge-label">Strategy &amp; Architecture</span></div><h3>We design the blueprint.</h3><p class="phase-timeline" style="margin-top:.75rem">Week 2&ndash;3</p></div>
+      <div><p>Armed with insights from Discovery, we design a full-funnel growth strategy tailored to your goals, budget, and competitive position. This is where we decide which channels, audiences, messages, and metrics matter.</p>
+      <div style="margin-top:1.5rem">
+        <div class="phase-step"><div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><path d="M9 2v4M9 12v4M2 9h4M12 9h4"/></svg></div><div><div class="phase-step-title">Channel &amp; Budget Strategy</div><div class="phase-step-desc">Recommending the optimal channel mix and budget allocation based on your audience and goals.</div></div></div>
+        <div class="phase-step"><div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><rect x="2" y="4" width="14" height="11" rx="2"/><path d="M6 8h6M6 11h4"/></svg></div><div><div class="phase-step-title">Campaign Architecture Design</div><div class="phase-step-desc">Building the full campaign structure, targeting layers, and bidding strategy before a single campaign goes live.</div></div></div>
+        <div class="phase-step"><div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l3 3"/></svg></div><div><div class="phase-step-title">Audience Research &amp; Persona Mapping</div><div class="phase-step-desc">Building detailed audience segments for each platform, including custom audiences, lookalikes, and exclusion lists.</div></div></div>
+        <div class="phase-step"><div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><rect x="3" y="3" width="12" height="12" rx="1"/><path d="M6 6h6M6 9h4"/></svg></div><div><div class="phase-step-title">Creative Brief &amp; KPI Framework</div><div class="phase-step-desc">Defining the creative direction and the specific KPIs we'll be held accountable to — agreed upfront with you.</div></div></div>
+      </div></div>
     </div>
-
-    <!-- Phase 03 -->
     <div class="phase">
-      <div class="phase-left">
-        <div class="phase-num">03</div>
-        <div class="phase-badge"><span class="phase-badge-num">Phase 03</span><span class="phase-badge-label">Build &amp; Launch</span></div>
-        <h3>We build, verify, and go live.</h3>
-        <p class="phase-timeline" style="margin-top:.75rem">Timeline: Week 4</p>
-      </div>
-      <div class="phase-right">
-        <p>With the strategy approved, we move into build mode — setting up every campaign, automation, creative, and tracking element with precision. Nothing goes live until it's been quality-checked against our 47-point pre-launch checklist.</p>
-        <p>We handle everything: account access, pixel setup, creative production, copy approval, tracking verification. You don't need to manage the technical details — that's what we're here for.</p>
-        <div class="phase-steps">
-          <div class="phase-step">
-            <div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><path d="M4 9h10M4 5h10M4 13h6"/></svg></div>
-            <div><div class="phase-step-title">Campaign Build &amp; Creative Production</div><div class="phase-step-desc">Building all campaigns, ad sets, ads, email sequences, and creative assets ready for approval in a structured creative review process.</div></div>
-          </div>
-          <div class="phase-step">
-            <div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><path d="M9 2l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"/></svg></div>
-            <div><div class="phase-step-title">Tracking &amp; Attribution Setup</div><div class="phase-step-desc">Installing and verifying all conversion tracking: Google Tag Manager, Meta Pixel, LinkedIn Insight Tag, and UTM framework.</div></div>
-          </div>
-          <div class="phase-step">
-            <div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><circle cx="9" cy="9" r="7"/><path d="M6 9l2 2 4-4"/></svg></div>
-            <div><div class="phase-step-title">Pre-Launch QA &amp; Client Approval</div><div class="phase-step-desc">Walking through every campaign element with you before launch — nothing goes live without your sign-off.</div></div>
-          </div>
-          <div class="phase-step">
-            <div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><path d="M4 14V8l5-5 5 5v6M7 14v-4h4v4"/></svg></div>
-            <div><div class="phase-step-title">Go Live &amp; First-Week Monitoring</div><div class="phase-step-desc">Launching all campaigns simultaneously and monitoring hourly in the first 72 hours to catch any technical issues early.</div></div>
-          </div>
-        </div>
-      </div>
+      <div class="phase-left"><div class="phase-num">03</div><div class="phase-badge"><span class="phase-badge-num">Phase 03</span><span class="phase-badge-label">Build &amp; Launch</span></div><h3>We build, verify, and go live.</h3><p class="phase-timeline" style="margin-top:.75rem">Week 4</p></div>
+      <div><p>With the strategy approved, we move into build mode — setting up every campaign, automation, creative, and tracking element with precision. Nothing goes live until it's been quality-checked against our pre-launch checklist.</p>
+      <div style="margin-top:1.5rem">
+        <div class="phase-step"><div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><path d="M4 9h10M4 5h10M4 13h6"/></svg></div><div><div class="phase-step-title">Campaign Build &amp; Creative Production</div><div class="phase-step-desc">Building all campaigns, ad sets, ads, email sequences, and creative assets ready for your approval.</div></div></div>
+        <div class="phase-step"><div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><path d="M9 2l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"/></svg></div><div><div class="phase-step-title">Tracking &amp; Attribution Setup</div><div class="phase-step-desc">Installing and verifying all conversion tracking: Google Tag Manager, Meta Pixel, LinkedIn Insight Tag.</div></div></div>
+        <div class="phase-step"><div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><circle cx="9" cy="9" r="7"/><path d="M6 9l2 2 4-4"/></svg></div><div><div class="phase-step-title">Pre-Launch QA &amp; Client Approval</div><div class="phase-step-desc">Walking through every campaign element with you before launch — nothing goes live without your sign-off.</div></div></div>
+        <div class="phase-step"><div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><path d="M4 14V8l5-5 5 5v6M7 14v-4h4v4"/></svg></div><div><div class="phase-step-title">Go Live &amp; First-Week Monitoring</div><div class="phase-step-desc">Launching all campaigns and monitoring hourly in the first 72 hours to catch any issues early.</div></div></div>
+      </div></div>
     </div>
-
-    <!-- Phase 04 -->
     <div class="phase">
-      <div class="phase-left">
-        <div class="phase-num">04</div>
-        <div class="phase-badge"><span class="phase-badge-num">Phase 04</span><span class="phase-badge-label">Optimise &amp; Report</span></div>
-        <h3>We improve, always.</h3>
-        <p class="phase-timeline" style="margin-top:.75rem">Timeline: Ongoing</p>
-      </div>
-      <div class="phase-right">
-        <p>This is where most agencies stop, but where we're just getting started. Continuous optimisation is the difference between a campaign that works in month one and a campaign that doubles performance by month six.</p>
-        <p>You'll always know exactly what's happening — weekly optimisation updates, monthly strategy reviews, and a real-time dashboard that you can access 24/7. No waiting for a monthly report to understand your results.</p>
-        <div class="phase-steps">
-          <div class="phase-step">
-            <div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><path d="M2 12l4-6 4 3 4-5 3 2"/></svg></div>
-            <div><div class="phase-step-title">Weekly Performance Optimisation</div><div class="phase-step-desc">Bid adjustments, budget reallocation, audience pruning, creative refresh, and keyword management — every week, without exception.</div></div>
-          </div>
-          <div class="phase-step">
-            <div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><rect x="2" y="9" width="3" height="7"/><rect x="7" y="5" width="3" height="11"/><rect x="12" y="2" width="3" height="14"/></svg></div>
-            <div><div class="phase-step-title">A/B Testing Programme</div><div class="phase-step-desc">Systematic testing of ad copy, creative formats, landing page elements, email subject lines — building a compounding competitive advantage.</div></div>
-          </div>
-          <div class="phase-step">
-            <div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><rect x="2" y="2" width="14" height="14" rx="2"/><path d="M6 6h6M6 9h4M6 12h6"/></svg></div>
-            <div><div class="phase-step-title">Monthly Strategy Review</div><div class="phase-step-desc">A dedicated call reviewing the month's performance, insights, learnings, and the strategic plan for the month ahead — with you, not at you.</div></div>
-          </div>
-          <div class="phase-step">
-            <div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l2 2"/></svg></div>
-            <div><div class="phase-step-title">Real-Time Dashboard Access</div><div class="phase-step-desc">Your personalised Looker Studio dashboard shows live spend, impressions, clicks, conversions, and ROAS — 24 hours a day, 7 days a week.</div></div>
-          </div>
-        </div>
-      </div>
+      <div class="phase-left"><div class="phase-num">04</div><div class="phase-badge"><span class="phase-badge-num">Phase 04</span><span class="phase-badge-label">Optimise &amp; Report</span></div><h3>We improve, always.</h3><p class="phase-timeline" style="margin-top:.75rem">Ongoing</p></div>
+      <div><p>This is where most agencies stop, but where we're just getting started. Continuous optimisation is the difference between a campaign that works in month one and one that doubles performance by month six.</p>
+      <div style="margin-top:1.5rem">
+        <div class="phase-step"><div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><path d="M2 12l4-6 4 3 4-5 3 2"/></svg></div><div><div class="phase-step-title">Weekly Performance Optimisation</div><div class="phase-step-desc">Bid adjustments, budget reallocation, audience pruning, creative refresh — every week without exception.</div></div></div>
+        <div class="phase-step"><div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><rect x="2" y="9" width="3" height="7"/><rect x="7" y="5" width="3" height="11"/><rect x="12" y="2" width="3" height="14"/></svg></div><div><div class="phase-step-title">A/B Testing Programme</div><div class="phase-step-desc">Systematic testing of ad copy, creative formats, landing page elements, and email subject lines.</div></div></div>
+        <div class="phase-step"><div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><rect x="2" y="2" width="14" height="14" rx="2"/><path d="M6 6h6M6 9h4M6 12h6"/></svg></div><div><div class="phase-step-title">Monthly Strategy Review</div><div class="phase-step-desc">A dedicated call reviewing performance, insights, and the strategic plan for the month ahead — with you, not at you.</div></div></div>
+        <div class="phase-step"><div class="phase-step-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l2 2"/></svg></div><div><div class="phase-step-title">Real-Time Dashboard Access</div><div class="phase-step-desc">Your personalised dashboard shows live spend, conversions, and ROAS — 24 hours a day, 7 days a week.</div></div></div>
+      </div></div>
     </div>
-
   </div>
 </section>
 
-<!-- TOOLS -->
-<div class="tools-section">
+<section class="section" style="background:var(--gray-100)">
   <div class="container">
     <span class="label">Our Tech Stack</span>
     <h2 style="margin-top:.75rem;margin-bottom:.5rem">Tools We Use</h2>
@@ -223,15 +199,31 @@
       <div class="tool-card"><div class="tool-category">CRO &amp; Testing</div><div class="tool-names">Hotjar<br/>VWO<br/>Optimizely<br/>Microsoft Clarity</div></div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- CTA -->
 <section class="cta-band">
   <div class="container">
     <h2>Ready to Start the Process?</h2>
-    <p>Book your free audit and we'll walk you through exactly how this process applies to your business — in 30 minutes.</p>
-    <a href="free-audit.html" class="btn btn-navy">Start with a Free Audit →</a>
+    <p>Book your free audit and we'll walk you through exactly how this applies to your business — in 30 minutes.</p>
+    <a href="free-audit.html" class="btn btn-navy">Start with a Free Audit &rarr;</a>
   </div>
 </section>
+
+</main>
+<footer id="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:.5rem"><svg width="28" height="28" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="6" r="3" fill="#C9A84C"/><circle cx="30" cy="24" r="3" fill="#C9A84C"/><circle cx="6" cy="24" r="3" fill="#C9A84C"/><line x1="18" y1="9" x2="6" y2="21" stroke="#C9A84C" stroke-width="1.2" opacity="0.7"/><line x1="18" y1="9" x2="30" y2="21" stroke="#C9A84C" stroke-width="1.2" opacity="0.7"/><line x1="6" y1="24" x2="30" y2="24" stroke="#C9A84C" stroke-width="1.2" opacity="0.7"/><circle cx="18" cy="19" r="3" fill="none" stroke="#C9A84C" stroke-width="1.2"/><circle cx="18" cy="19" r="1.2" fill="#C9A84C"/></svg><span style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff">NEXUS</span><span style="font-size:.6rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;align-self:flex-end;padding-bottom:2px">Digital Agency</span></div>
+        <p>Full-service digital marketing for B2B and B2C brands. Performance, transparency, and results that compound.</p>
+        <p style="margin-top:.75rem"><a href="mailto:info@nexusdigital.agency" style="color:#C9A84C;font-size:.85rem">info@nexusdigital.agency</a></p>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="services.html">Google Ads</a></li><li><a href="services.html">Meta Advertising</a></li><li><a href="services.html">LinkedIn Ads</a></li><li><a href="services.html">TikTok Ads</a></li><li><a href="services.html">Email Marketing</a></li><li><a href="services.html">SEO &amp; SEM</a></li><li><a href="services.html">Web Design</a></li><li><a href="services.html">Copywriting</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="process.html">Our Process</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Get Started</h4><ul class="footer-links"><li><a href="free-audit.html">Free Audit</a></li><li><a href="contact.html">Get a Quote</a></li><li><a href="contact.html">Warsaw, Poland</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">Instagram</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 Nexus Digital Agency. All rights reserved.</p><p>Privacy Policy &nbsp;&middot;&nbsp; Terms of Service</p></div>
+  </div>
+</footer>
 </body>
 </html>
